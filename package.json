@@ -1,0 +1,28 @@
+{
+  "name": "node-weblog",
+  "version": "1.0.0",
+  "description": "a project to practise node js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadikhah/weblog-with-node.git"
+  },
+  "keywords": [
+    "weblog",
+    "nodejs"
+  ],
+  "author": "Mohammad Ali Hadikhah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hadikhah/weblog-with-node/issues"
+  },
+  "homepage": "https://github.com/hadikhah/weblog-with-node#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19"
+  }
+}
