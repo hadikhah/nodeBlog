@@ -2,6 +2,7 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const connectDB = require('./database');
 const makePath = require("../utils/path")
 
 /**
@@ -11,7 +12,9 @@ const makePath = require("../utils/path")
  */
 
 function config(app) {
-
+    // -------- connecting to DB --------
+    connectDB()
+    //
     // ---------- Middleware configs ----------
     /*  
     |    ** morgan logging only ** 
@@ -20,10 +23,7 @@ function config(app) {
     |    to whatever you want
     */
     if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
-    /*
-    |
-    |
-    */
+    /**/
     app.use(express.urlencoded({ extended: false }))
     //
 
