@@ -9,10 +9,8 @@ const config = require('./config');
 
 const app = express()
 
-const port = process.env.PORT
-
 // -------- loading env files --------
-dotenv.config({ path: '.env' })
+dotenv.config({ path: './.env' })
 //
 // -------- configrations and middlewares --------
 config(app)
@@ -21,7 +19,7 @@ config(app)
 app.use(webRoutes)
 //
 
-
-app.listen(process.env.PORT ? process.env.PORT : 1000, () => {
-    console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('http://localhost:') + chalk.yellow(process.env.PORT ? process.env.PORT : 1000)}`);
+const port = process.env.PORT
+app.listen(port ? port : 1000, () => {
+    console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('http://localhost:') + chalk.yellow(port ? port : 1000)}`);
 })
