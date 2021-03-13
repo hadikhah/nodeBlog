@@ -1,5 +1,6 @@
 // const bodyParser = require('body-parser')
 const express = require('express');
+const morgan = require('morgan');
 
 const makePath = require("../utils/path")
 
@@ -10,7 +11,19 @@ const makePath = require("../utils/path")
  */
 
 function config(app) {
+
     // ---------- Middleware configs ----------
+    /*  
+    |    ** morgan logging only ** 
+    |    if you need to log in other modes 
+    |    just change development
+    |    to whatever you want
+    */
+    if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
+    /*
+    |
+    |
+    */
     app.use(express.urlencoded({ extended: false }))
     //
 

@@ -1,11 +1,14 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const chalk = require('chalk');
+// const morgan = require('morgan');
+
 
 const webRoutes = require('./router/web.js');
 const config = require('./config');
 
 const app = express()
+
 const port = process.env.PORT
 
 // -------- loading env files --------
