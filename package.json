@@ -2,13 +2,15 @@
   "name": "node-weblog",
   "version": "1.0.0",
   "description": "a project to practise node js",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node app.js",
+    "dev": "cross-env NODE_ENV=development nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hadikhah/weblog-with-node.git"
+    "url": "git+https://github.com/hadikhah/nodeBlog.git"
   },
   "keywords": [
     "weblog",
@@ -17,12 +19,18 @@
   "author": "Mohammad Ali Hadikhah",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hadikhah/weblog-with-node/issues"
+    "url": "https://github.com/hadikhah/nodeBlog/issues"
   },
-  "homepage": "https://github.com/hadikhah/weblog-with-node#readme",
+  "homepage": "https://github.com/hadikhah/nodeBlog#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mongoose": "^5.11.19"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.7"
   }
 }
