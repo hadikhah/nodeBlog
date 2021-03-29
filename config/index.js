@@ -1,6 +1,7 @@
 // const bodyParser = require('body-parser')
 const express = require('express');
 const morgan = require('morgan');
+const expressLayouts = require('express-ejs-layouts');
 
 const connectDB = require('./database');
 const makePath = require("../utils/path")
@@ -29,12 +30,18 @@ function config(app) {
 
     // ---------- view engine configs ----------
     app.set("view engine", 'ejs')
-    app.set("views", "Views")
+    app.set("views", "views")
+    app.use(expressLayouts)
+    app.set('layout', 'layouts/main')
+    app.set('layout extractMetas', true)
+    app.set('layout extractStyles', true)
+    app.set('layout extractScripts', true)
     // 
 
     // ---------- statice files ----------
     app.use(express.static(makePath(["public"])))
-    app.use(express.static(makePath(["node_modules", "bootstrap-v4-rtl", "dist"])))
+    console.log(makePath(["public"]));
+    app.use(express.static(makePath(["node_modules", "bulma"])))
     app.use(express.static(makePath(["node_modules", "font-awesome"])))
     // 
 }
