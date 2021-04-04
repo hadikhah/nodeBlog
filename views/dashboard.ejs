@@ -1,0 +1,1680 @@
+<div id="app">
+    <nav id="navbar-main" class="navbar is-fixed-top">
+        <div class="navbar-brand">
+            <a title="Expand" class="navbar-item is-desktop-icon-only is-hidden-touch jb-aside-toggle"
+                data-target="aside-main">
+                <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+            </a>
+            <a class="navbar-item is-hidden-desktop jb-aside-mobile-toggle">
+                <span class="icon"><i class="mdi mdi-backburger mdi-24px"></i></span>
+            </a>
+            <div class="navbar-item has-control no-left-space">
+                <div class="control"><input placeholder="Search everywhere..." class="input"></div>
+            </div>
+        </div>
+        <div class="navbar-brand is-right">
+            <a class="navbar-item is-hidden-desktop jb-aside-right-toggle">
+                <span class="icon"><i class="mdi mdi-bell default"></i></span>
+            </a>
+            <a class="navbar-item is-hidden-desktop jb-navbar-menu-toggle" data-target="navbar-menu">
+                <span class="icon"><i class="mdi mdi-dots-vertical"></i></span>
+            </a>
+        </div>
+        <div class="navbar-menu fadeIn animated faster" id="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown has-dropdown-with-icons has-divider has-user-avatar is-hoverable">
+                    <a class="navbar-link is-arrowless">
+                        <div class="is-user-avatar">
+                            <img src="https://avatars.dicebear.com/v2/initials/احسان-علیخانی.svg" alt="احسان-علیخانی">
+                        </div>
+                        <div class="is-user-name"><span>احسان علیخانی</span></div>
+                        <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a href="profile.html" class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-account"></i></span>
+                            <span>مشاهده پروفایل</span>
+                        </a>
+                        <a class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-settings"></i></span>
+                            <span>تنظیمات</span>
+                        </a>
+                        <a class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-email"></i></span>
+                            <span>پیام ها</span>
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-logout"></i></span>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown has-dropdown-with-icons has-divider is-hoverable">
+                    <a class="navbar-link is-arrowless">
+                        <span class="icon"><i class="mdi mdi-menu"></i></span>
+                        <span>منو</span>
+                        <span class="icon">
+                            <i class="mdi mdi-chevron-down"></i>
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a href="profile.html" class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-account"></i></span>
+                            <span>پروفایل</span>
+                        </a>
+                        <a class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-settings"></i></span>
+                            <span>تنظیمات</span>
+                        </a>
+                        <a class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-email"></i></span>
+                            <span>پیام ها</span>
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            <span class="icon"><i class="mdi mdi-logout"></i></span>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="#" title="درباره" class="navbar-item has-divider is-desktop-icon-only">
+                    <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
+                    <span>درباره</span>
+                </a>
+                <a title="Updates" class="navbar-item has-divider is-desktop-icon-only jb-aside-right-toggle">
+                    <span class="icon has-update-mark"><i class="mdi mdi-bell default"></i></span>
+                    <span>به روز رسانی ها</span>
+                </a>
+                <a title="خروج" class="navbar-item is-desktop-icon-only">
+                    <span class="icon"><i class="mdi mdi-logout"></i></span>
+                    <span>خروج</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <aside id="aside-main" class="aside is-expanded is-placed-left">
+        <div class="aside-tools">
+            <div class="aside-tools-label">
+                <span><b>MA</b>H</span>
+            </div>
+        </div>
+        <div class="menu-container jb-has-perfect-scrollbar">
+            <div class="menu is-menu-main">
+                <p class="menu-label">اصلی</p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="index.html" class="is-active has-icon">
+                            <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
+                            <span class="menu-item-label">داشبورد</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="menu-label">مثال ها</p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="tables.html" class="has-icon">
+                            <span class="icon has-update-mark"><i class="mdi mdi-table"></i></span>
+                            <span class="menu-item-label">جدول ها</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="forms.html" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+                            <span class="menu-item-label">فرم ها</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                            <span class="menu-item-label">پروفایل</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-icon has-submenu-icon jb-dropdown">
+                            <span class="icon"><i class="mdi mdi-arrow-down-bold-circle"></i></span>
+                            <span class="menu-item-label">باز شونده</span>
+                            <div class="submenu-icon">
+                                <span class="icon"><i class="mdi mdi-plus"></i></span>
+                            </div>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#void">
+                                    <span>زیر مورد</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#void">
+                                    <span>زیر مورد</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-icon has-submenu-icon jb-aside-secondary-toggle">
+                            <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                            <span class="menu-item-label">زیر منو</span>
+                            <div class="submenu-icon">
+                                <span class="icon"><i class="mdi mdi-chevron-left"></i></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <p class="menu-label">غیره</p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="login.html" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-lock"></i></span>
+                            <span class="menu-item-label">ورود</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="error-v1.html" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-power-plug"></i></span>
+                            <span class="menu-item-label">صفحه ارور ۱</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="error-v2.html" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-alert-decagram"></i></span>
+                            <span class="menu-item-label">صفحه ارور ۲</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lock-screen.html" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-lock-reset"></i></span>
+                            <span class="menu-item-label">صفحه قفل</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="menu-label">درباره</p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="https://justboil.me/bulma-admin-template/one" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-help-circle"></i></span>
+                            <span class="menu-item-label">درباره</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu is-menu-bottom">
+            <ul class="menu-list">
+                <li>
+                    <a title="Log out" class="has-icon is-state-info is-hoverable">
+                        <span class="icon"><i class="mdi mdi-logout default"></i></span>
+                        <span class="menu-item-label">خروج</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <aside id="aside-secondary" class="aside is-placed-left is-expanded is-secondary is-hidden">
+        <div class="aside-tools has-icon">
+            <div class="aside-tools-label">
+                <span class="icon"><i class="mdi mdi-view-list default"></i></span>
+                <span>مثال</span>
+            </div>
+            <a class="aside-close">
+                <span class="icon"><i class="mdi mdi-close default"></i></span>
+            </a>
+        </div>
+        <div class="menu-container jb-has-perfect-scrollbar">
+            <div class="menu is-menu-main">
+                <p class="menu-label">مثال</p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#void" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-view-list default"></i></span>
+                            <span class="menu-item-label">زیرمورد۱</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#void" class="has-icon">
+                            <span class="icon"><i class="mdi mdi-view-list default"></i></span>
+                            <span class="menu-item-label">زیرمورد۲</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="menu-label">بازشونده</p>
+                <ul class="menu-list">
+                    <li>
+                        <a class="has-icon has-submenu-icon jb-dropdown">
+                            <span class="icon"><i class="mdi mdi-view-list default"></i></span>
+                            <span class="menu-item-label">زیرمنو</span>
+                            <div class="submenu-icon">
+                                <span class="icon"><i class="mdi mdi-plus default"></i></span>
+                            </div>
+                        </a>
+                        <ul>
+                            <li><a href="#void"><span>زیر منو ۱</span></a></li>
+                            <li><a href="#void"><span>زیر منو ۲</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu is-menu-bottom">
+            <ul class="menu-list"></ul>
+        </div>
+    </aside>
+    <section class="section is-title-bar">
+        <div class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    <ul>
+                        <li>ادمین</li>
+                        <li>داشبورد</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="hero is-hero-bar is-main-hero">
+        <div class="hero-body">
+            <div class="level">
+                <div class="level-left">
+                    <div class="level-item is-hero-avatar-item">
+                        <div class="image is-user-avatar"><img
+                                src="https://avatars.dicebear.com/v2/initials/احسان-علیخانی.svg">
+                        </div>
+                    </div>
+                    <div class="level-item is-hero-content-item">
+                        <div>
+                            <h1 class="title is-spaced"><b>احسان علیخانی</b> عزیز </h1>
+                            <h3 class="subtitle">آخزین ورود <b>۱۲دقیقه قبل </b>از طریق <b>192.168.1.1</b></h3>
+                            <p>شما <b>۶ فعالیت</b> و <b>84 سوال</b> برای امروز دارید</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a href="profile.html" class="button is-light" title="Profile">
+                            <span class="icon"><i class="mdi mdi-account"></i></span>
+                            <span>مدیریت پروفایل</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section is-main-section">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="card is-card-widget tile is-child">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <span class="icon"><i class="mdi mdi-arrow-up-bold"></i></span>
+                            <span><b>۳۸۴</b> در <b>جولای , 2019</b></span>
+                        </p>
+                        <button type="button" class="button is-small">
+                            <span class="icon"><i class="mdi mdi-settings"></i></span>
+                        </button>
+                    </header>
+                    <div class="card-content">
+                        <div class="level is-mobile">
+                            <div class="level-item">
+                                <div class="is-widget-label">
+                                    <h3 class="subtitle is-spaced">کاربر</h3>
+                                    <h1 class="title">
+                                        512
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="level-item has-widget-icon">
+                                <div class="is-widget-icon">
+                                    <span class="icon has-text-primary is-large"><i
+                                            class="mdi mdi-account-multiple mdi-48px"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <div class="card is-card-widget tile is-child">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <span class="icon"><i class="mdi mdi-arrow-up-bold"></i></span>
+                            <span><b>ریال7,000</b> در <b>جولای, 2019</b></span>
+                        </p>
+                        <button type="button" class="button is-small">
+                            <span class="icon"><i class="mdi mdi-settings"></i></span>
+                        </button>
+                    </header>
+                    <div class="card-content">
+                        <div class="level is-mobile">
+                            <div class="level-item">
+                                <div class="is-widget-label">
+                                    <h3 class="subtitle is-spaced">جمع فروش</h3>
+                                    <h1 class="title">
+                                        ریال7,770
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="level-item has-widget-icon">
+                                <div class="is-widget-icon">
+                                    <span class="icon has-text-info is-large"><i
+                                            class="mdi mdi-cart-outline mdi-48px"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <div class="card is-card-widget tile is-child">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <span class="icon"><i class="mdi mdi-arrow-down-bold"></i></span>
+                            <span><b>384%</b> در <b>جولای , 2019</b></span>
+                        </p>
+                        <button type="button" class="button is-small">
+                            <span class="icon"><i class="mdi mdi-settings"></i></span>
+                        </button>
+                    </header>
+                    <div class="card-content">
+                        <div class="level is-mobile">
+                            <div class="level-item">
+                                <div class="is-widget-label">
+                                    <h3 class="subtitle is-spaced">کارایی اجرایی</h3>
+                                    <h1 class="title">
+                                        256%
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="level-item has-widget-icon">
+                                <div class="is-widget-icon">
+                                    <span class="icon has-text-success is-large"><i
+                                            class="mdi mdi-chart-timeline-variant mdi-48px"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <div class="card is-card-widget tile is-child">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <span class="icon"><i class="mdi mdi-arrow-down-bold"></i></span>
+                            <span><b>64</b> در <b>جولای , 2019</b></span>
+                        </p>
+                        <button type="button" class="button is-small">
+                            <span class="icon"><i class="mdi mdi-settings"></i></span>
+                        </button>
+                    </header>
+                    <div class="card-content">
+                        <div class="level is-mobile">
+                            <div class="level-item">
+                                <div class="is-widget-label">
+                                    <h3 class="subtitle is-spaced">هشدار</h3>
+                                    <h1 class="title">
+                                        32
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="level-item has-widget-icon">
+                                <div class="is-widget-icon">
+                                    <span class="icon has-text-danger is-large"><i
+                                            class="mdi mdi-bell mdi-48px"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    <span class="icon"><i class="mdi mdi-finance"></i></span>
+                    نمودار اجرایی
+                </p>
+                <a href="#" class="card-header-icon">
+                    <span class="icon"><i class="mdi mdi-reload"></i></span>
+                </a>
+            </header>
+            <div class="card-content">
+                <div class="chart-area">
+                    <div style="height: 100%;">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div></div>
+                            </div>
+                        </div>
+                        <canvas id="big-line-chart" width="2992" height="1000" class="chartjs-render-monitor"
+                            style="display: block; height: 400px; width: 1197px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-desktop">
+            <div class="column">
+                <div class="card has-height-medium">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <span class="icon"><i class="mdi mdi-comment-multiple-outline default"></i></span>
+                            <span>نظر های اخیر</span>
+                        </p>
+                        <button type="button" class="button is-small">
+                            <span class="icon"><i class="mdi mdi-refresh default"></i></span>
+                            <span>رفرش</span>
+                        </button>
+                    </header>
+                    <div class="notification is-card-toolbar is-upper">
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <div>مهم ها برای یادداشت</div>
+                                </div>
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item"><span class="tag is-warning"><span>خطا</span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content jb-has-perfect-scrollbar">
+                        <div class="media-list">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64"><img
+                                            src="https://avatars.dicebear.com/v2/initials/lon-dach.svg"
+                                            class="is-rounded"></p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Lon Dach</strong>
+                                            <small>@tia79</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Rerum eos et quo tenetur et. Qui voluptatum inventore voluptate. Non
+                                            repudiandae dolorum
+                                            necessitatibus voluptatem et. Atque ut nam voluptatem ea.
+                                        </p>
+                                    </div>
+                                    <nav class="level is-mobile">
+                                        <div class="level-left">
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-reply default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-twitter-retweet default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-heart-outline default"></i></span></a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64"><img
+                                            src="https://avatars.dicebear.com/v2/initials/zane-marvin.svg"
+                                            class="is-rounded"></p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Zane Marvin</strong>
+                                            <small>@gmayer</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Natus sunt ut ipsam fuga non esse quod. Dolores odio ut saepe eum sequi
+                                            aut impedit quaerat.
+                                            Quaerat praesentium vero culpa accusamus quas.
+                                        </p>
+                                    </div>
+                                    <nav class="level is-mobile">
+                                        <div class="level-left">
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-reply default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-twitter-retweet default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-heart-outline default"></i></span></a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64"><img
+                                            src="https://avatars.dicebear.com/v2/initials/kaelyn-gorczany.svg"
+                                            class="is-rounded"></p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Kaelyn Gorczany</strong>
+                                            <small>@gaylord.myriam</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Id consequatur voluptate odio et qui sapiente est. Assumenda sed quos et
+                                            vel molestias.
+                                        </p>
+                                    </div>
+                                    <nav class="level is-mobile">
+                                        <div class="level-left">
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-reply default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-twitter-retweet default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-heart-outline default"></i></span></a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </article>
+
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64"><img
+                                            src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg"
+                                            class="is-rounded"></p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Rebecca Bauch</strong>
+                                            <small>@helga.pfannerstill</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Natus sunt ut ipsam fuga non esse quod. Dolores odio ut saepe eum sequi
+                                            aut impedit quaerat.
+                                            Quaerat praesentium vero culpa accusamus quas.
+                                        </p>
+                                    </div>
+                                    <nav class="level is-mobile">
+                                        <div class="level-left">
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-reply default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-twitter-retweet default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-heart-outline default"></i></span></a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64"><img
+                                            src="https://avatars.dicebear.com/v2/initials/jonathon-hahn.svg"
+                                            class="is-rounded"></p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Jonathon Hahn</strong>
+                                            <small>@queen33</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Quia exercitationem debitis cum eos consequuntur exercitationem debitis.
+                                            Esse ipsa tempore
+                                            consequuntur.
+                                        </p>
+                                    </div>
+                                    <nav class="level is-mobile">
+                                        <div class="level-left">
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-reply default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-twitter-retweet default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-heart-outline default"></i></span></a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a class="card-footer-item">
+                            <span class="icon"><i class="mdi mdi-autorenew default"></i></span>
+                            <span>موارد بیشتر</span>
+                        </a>
+                    </footer>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card has-height-medium">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <span class="icon"><i class="mdi mdi-animation-outline default"></i></span>
+                            <span>به روز رسانی ها</span>
+                        </p>
+                        <button type="button" class="button is-small">
+                            <span class="icon"><i class="mdi mdi-refresh default"></i></span>
+                            <span>رفرش</span>
+                        </button>
+                    </header>
+                    <div class="notification is-card-toolbar is-upper">
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <div>شما به روز هستید :-)</div>
+                                </div>
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item"><span class="tag is-success"><span>کامل شد</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content jb-has-perfect-scrollbar">
+                        <div class="media-list">
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Alvena Rohan</strong>
+                                            <small>@hoeger.kelli</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Eum rerum nam corporis neque ea. Eaque ut est id nesciunt earum. Quia
+                                            dolores qui quia quae modi
+                                            deleniti non. Blanditiis molestiae debitis laborum incidunt.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Kaelyn Gorczany</strong>
+                                            <small>@gaylord.myriam</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Et dolor dolor non et harum doloribus illum. Minus totam quia omnis.
+                                            Rerum vel numquam labore
+                                            alias exercitationem harum. Iusto ipsum et cupiditate aut tempore rerum
+                                            sit ipsa.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Mr. Broderick Kub</strong>
+                                            <small>@rita52</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Sapiente ut harum omnis sit aut earum. Illo quidem harum omnis est autem
+                                            ut vel suscipit.
+                                            Consequatur unde doloremque voluptatem voluptatum est omnis cupiditate.
+                                            Eum explicabo adipisci
+                                            esse.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Ms. Valentina Braun DDS</strong>
+                                            <small>@michaela.lindgren</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Qui perferendis voluptas sint quis quo dignissimos dignissimos fugit. Et
+                                            praesentium aut rerum
+                                            iusto voluptatem tempore ratione aut. Beatae tempora omnis illo
+                                            blanditiis veritatis sit qui.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Kenya Steuber</strong>
+                                            <small>@cindy.jaskolski</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Consequatur non nam totam recusandae alias qui voluptas. Animi
+                                            doloremque rerum aut. Nulla est
+                                            eos
+                                            odio quasi quo tempore esse.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Zane Marvin</strong>
+                                            <small>@gmayer</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Qui quis incidunt ut rem itaque tempora. Dolores voluptatum similique a
+                                            est. Ut velit
+                                            necessitatibus possimus nihil. Quasi ullam perferendis sed ut eaque
+                                            voluptatem.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Devante Jast</strong>
+                                            <small>@hansen.adrain</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Ea eveniet corrupti in tenetur quia. Molestiae maiores velit nisi
+                                            mollitia quis omnis. Et et
+                                            rerum
+                                            laboriosam dolorem tenetur harum.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Bonnie Bruen</strong>
+                                            <small>@nikolaus.lauretta</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Ipsam dolorem ea quia. Rerum iure veniam est exercitationem laboriosam
+                                            necessitatibus. Eum velit
+                                            dolor non cupiditate.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Devante Jast</strong>
+                                            <small>@hansen.adrain</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Dolores accusantium quidem nobis eum enim voluptatem quam. Fugiat rerum
+                                            aliquam assumenda quia
+                                            eum
+                                            et. Sint et sed voluptas quibusdam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Miss Leatha Shields</strong>
+                                            <small>@kunde.ruthie</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Qui consectetur sunt et illo est quos quas. Magnam omnis libero totam
+                                            architecto. Ratione
+                                            adipisci
+                                            voluptatem saepe eos.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Johanna Jaskolski V</strong>
+                                            <small>@torp.jaron</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Veniam fugiat optio ut nulla. Voluptatem maiores explicabo aliquid
+                                            expedita occaecati. Ad quidem
+                                            aliquam provident rerum ipsum necessitatibus reprehenderit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Dr. Kelsi Adams PhD</strong>
+                                            <small>@angelina58</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Nam est nemo at est dolores libero. Quo aperiam vel aut. Esse eveniet
+                                            autem eos voluptas.
+                                            Voluptatem qui quia mollitia eos consectetur blanditiis beatae.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Keshaun Schinner Sr.</strong>
+                                            <small>@uhammes</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Veritatis quia necessitatibus sequi culpa quibusdam explicabo. Sunt
+                                            ullam quasi hic beatae sed
+                                            libero. Exercitationem iusto tempora architecto consequatur et impedit
+                                            quasi.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Trinity Marquardt MD</strong>
+                                            <small>@kale.daugherty</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Consequuntur incidunt cum doloribus dignissimos. Cupiditate corrupti
+                                            cupiditate dignissimos et
+                                            aut
+                                            maiores. Ipsum expedita illum vero.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>Miss Leatha Shields</strong>
+                                            <small>@kunde.ruthie</small>
+                                            <small class="has-text-grey">2 months ago</small>
+                                        </p>
+                                        <p>
+                                            Quas amet quam nulla. Modi quia eum laborum autem est aut sapiente.
+                                            Necessitatibus quidem et
+                                            animi
+                                            voluptatem. Quidem nihil eos atque.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <button class="delete"></button>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a class="card-footer-item">
+                            <span class="icon"><i class="mdi mdi-autorenew default"></i></span>
+                            <span>موارد بیشتر</span>
+                        </a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <div class="card has-table has-mobile-sort-spaced">
+            <header class="card-header">
+                <p class="card-header-title">
+                    <span class="icon"><i class="mdi mdi-monitor-cellphone"></i></span>
+                    نمونه جدول رسپانسیو
+                </p>
+                <button type="button" class="button is-small"><span class="icon"><i
+                            class="mdi mdi-refresh default"></i></span><span>بارگیری مجدد
+                    </span></button>
+            </header>
+            <div class="notification is-card-toolbar">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <div class="buttons has-addons">
+                                <button class="button is-active">فعال</button>
+                                <button disabled="disabled" class="button">اخیر</button>
+                                <button disabled="disabled" class="button">آرشیو ها</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            <form>
+                                <div class="field has-addons">
+                                    <div class="control"><input type="text" placeholder="فیلد ساده ..." class="input">
+                                    </div>
+                                    <div class="control">
+                                        <button type="submit" class="button is-primary"><span class="icon"><i
+                                                    class="mdi mdi-dots-horizontal default"></i></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="b-table has-pagination">
+                    <div class="table-wrapper has-mobile-cards">
+                        <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="is-current-sort is-sortable">
+                                        <div class="th-wrap">
+                                            نام <span class="icon is-small"><i class="mdi mdi-arrow-up"></i></span>
+                                        </div>
+                                    </th>
+                                    <th class="is-sortable">شرکت</th>
+                                    <th class="is-sortable">شهر</th>
+                                    <th>پیشرفت</th>
+                                    <th>ساخته شده در</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Rebecca Bauch</td>
+                                    <td data-label="Company">Daugherty-Daniel</td>
+                                    <td data-label="City">South Cory</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="79">79</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Oct 25, 2020">Oct 25,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/felicita-yundt.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Felicita Yundt</td>
+                                    <td data-label="Company">Johns-Weissnat</td>
+                                    <td data-label="City">East Ariel</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="67">67</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Jan 8, 2020">Jan 8,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/mr-larry-satterfield-v.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Mr. Larry Satterfield V</td>
+                                    <td data-label="Company">Hyatt Ltd</td>
+                                    <td data-label="City">Windlerburgh</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="16">16</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Dec 18, 2020">Dec 18,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/mr-broderick-kub.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Mr. Broderick Kub</td>
+                                    <td data-label="Company">Kshlerin, Bauch and Ernser</td>
+                                    <td data-label="City">New Kirstenport</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="71">71</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Sep 13, 2020">Sep 13,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/barry-weber.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Barry Weber</td>
+                                    <td data-label="Company">Schulist, Mosciski and Heidenreich</td>
+                                    <td data-label="City">East Violettestad</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="80">80</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Jul 24, 2020">Jul 24,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/bert-kautzer-md.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Bert Kautzer MD</td>
+                                    <td data-label="Company">Gerhold and Sons</td>
+                                    <td data-label="City">Mayeport</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="62">62</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Mar 30, 2020">Mar 30,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/lonzo-steuber.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Lonzo Steuber</td>
+                                    <td data-label="Company">Skiles Ltd</td>
+                                    <td data-label="City">Marilouville</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="17">17</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Feb 12, 2020">Feb 12,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/jonathon-hahn.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Jonathon Hahn</td>
+                                    <td data-label="Company">Flatley Ltd</td>
+                                    <td data-label="City">Billiemouth</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="74">74</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Dec 30, 2020">Dec 30,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/ryley-wuckert.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Ryley Wuckert</td>
+                                    <td data-label="Company">Heller-Little</td>
+                                    <td data-label="City">Emeraldtown</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="54">54</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Jun 28, 2020">Jun 28,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="is-image-cell">
+                                        <div class="image">
+                                            <img src="https://avatars.dicebear.com/v2/initials/sienna-hayes.svg"
+                                                class="is-rounded">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">Sienna Hayes</td>
+                                    <td data-label="Company">Conn, Jerde and Douglas</td>
+                                    <td data-label="City">Jonathanfort</td>
+                                    <td data-label="Progress" class="is-progress-cell">
+                                        <progress max="100" class="progress is-small is-primary"
+                                            value="55">55</progress>
+                                    </td>
+                                    <td data-label="Created">
+                                        <small class="has-text-grey is-abbr-like" title="Mar 7, 2020">Mar 7,
+                                            2020</small>
+                                    </td>
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger jb-modal"
+                                                data-target="sample-modal" type="button">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="notification">
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <div class="buttons has-addons">
+                                        <button type="button" class="button is-active">1</button>
+                                        <button type="button" class="button">2</button>
+                                        <button type="button" class="button">3</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <small>Page 1 of 3</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="aside is-expanded is-placed-right">
+        <div class="aside-container jb-has-perfect-scrollbar">
+            <div>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Natus sunt ut ipsam fuga non esse...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-info">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Nihil debitis optio non beatae a suscipit...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-info">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Qui quis incidunt ut rem itaque tempora....</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-success">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Et vel sint saepe velit laudantium voluptatem....</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-danger">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Consequatur non nam totam recusandae alias qui...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-info">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Nam est nemo at est dolores libero....</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-info">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Voluptatibus autem amet aliquam ea odit recusandae...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-danger">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Impedit ducimus eaque voluptas sed non sapiente...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-success">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Ad quisquam et quam debitis rerum rerum...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-warning">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Veniam fugiat optio ut nulla. Voluptatem maiores...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-primary">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Sint quisquam velit libero in sint aut...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-success">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Dolores accusantium quidem nobis eum enim voluptatem...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-info">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Et doloribus maiores in cumque maiores ratione....</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-warning">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Quis sit placeat ipsam magnam ab dolores....</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-primary">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Ut quo quia nobis et. Consequatur ut...</p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="tag is-small is-info">
+                                        <span class="icon is-small"><i class="mdi mdi-information"></i></span>
+                                    </span>
+                                </div>
+                                <div class="level-item"><small>2 months ago</small></div>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        © 2020, JustBoil.me
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <div class="logo">
+                            <a href="https://justboil.me"><img src="img/justboil-logo.svg" alt="JustBoil.me"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div id="ui-overlay" class="ui-overlay is-hidden"></div>
+
+<div id="sample-modal" class="modal">
+    <div class="modal-background jb-modal-close"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Confirm action</p>
+            <button class="delete jb-modal-close" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <p>This will permanently delete <b>Some Object</b></p>
+            <p>This is sample modal</p>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button jb-modal-close">Cancel</button>
+            <button class="button is-danger jb-modal-close">Delete</button>
+        </footer>
+    </div>
+    <button class="modal-close is-large jb-modal-close" aria-label="close"></button>
+</div>
+
+<!-- Scripts below are for demo only -->
+<script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script type="text/javascript" src="/js/chart.sample.min.js"></script>
+
+<!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
