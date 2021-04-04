@@ -19,7 +19,7 @@ config(app)
 app.use(webRoutes)
 //
 
-const port = process.env.PORT
-app.listen(port ? port : 1000, () => {
+const port = process.env.PORT || 1000
+app.listen(port, () => {
     console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('http://localhost:') + chalk.yellow(port ? port : 1000)}`);
 })
