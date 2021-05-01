@@ -1,0 +1,11 @@
+*:before, *:after {
+    font-family: digikala;
+}
+
+input, button {
+    font-family: irs;
+}
+
+body, html {
+    font-family: irs;
+}

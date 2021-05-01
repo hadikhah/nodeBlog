@@ -4,14 +4,14 @@ const chalk = require('chalk');
 // const morgan = require('morgan');
 
 
+// -------- loading env files --------
+dotenv.config({ path: './.env' })
+//
 const webRoutes = require('./router/web.js');
 const config = require('./config');
 
 const app = express()
 
-// -------- loading env files --------
-dotenv.config({ path: './.env' })
-//
 // -------- configrations and middlewares --------
 config(app)
 //

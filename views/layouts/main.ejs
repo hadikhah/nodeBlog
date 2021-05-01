@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- meta %>
 
-        <link rel="stylesheet" href="./css/bulma-rtl.css">
-        <link rel="stylesheet" href="./css/font-awesome.css">
-        <link rel="stylesheet" href="./css/font.css">
-        <link rel="stylesheet" href="./css/main-layout.css">
+        <link rel="stylesheet" href="/css/bulma-rtl.css">
+        <link rel="stylesheet" href="/css/font-awesome.css">
+        <link rel="stylesheet" href="/css/font.css">
+        <link rel="stylesheet" href="/css/main-layout.css">
         <%- style %>
             <title>
                 <%= pageTitle %>
@@ -19,16 +19,16 @@
 </head>
 
 <body dir="rtl">
-        <!-- including navbar -->
-        <%- include("../includes/main_navbar.ejs") %>
+    <!-- including navbar -->
+    <%- include("../includes/main_navbar.ejs") %>
         <!-- body -->
         <div id="app">
             <%- body %>
         </div>
         <!-- special javascripts of the page -->
         <%- script %>
-        <!-- main layout needed javascript -->
-        <script type="text/javascript" src="./js/main_layout.js"></script>
+            <!-- main layout needed javascript -->
+            <script type="text/javascript" src="./js/main_layout.js"></script>
 </body>
 
 </html>
