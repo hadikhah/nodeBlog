@@ -1,9 +1,10 @@
 // const bodyParser = require('body-parser')
 const express = require('express');
 const morgan = require('morgan');
+const compression = require('compression');
 const expressLayouts = require('express-ejs-layouts');
 
-const connectDB = require('./database');
+// const connectDB = require('./database');
 const makePath = require("../utils/path")
 
 /**
@@ -14,7 +15,7 @@ const makePath = require("../utils/path")
 
 function config(app) {
     // -------- connecting to DB --------
-    connectDB()
+    // connectDB()
     //
     // ---------- Middleware configs ----------
     /*  
@@ -38,6 +39,9 @@ function config(app) {
     app.set('layout extractScripts', true)
     // 
 
+    //------ statice files compression ---
+    app.use(compression()); //use compression 
+    //
     // ---------- statice files ----------
     app.use(express.static(makePath(["public"])))
     console.log(makePath(["public"]));
