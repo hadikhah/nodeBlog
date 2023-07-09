@@ -4,9 +4,9 @@ const chalk = require('chalk');
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
-            // becuase of depricated warning : URL string parser is deprecated
+            // because of deprecated warning : URL string parser is deprecated
             useNewUrlParser: true,
-            // becuase of depricated warning :current Server Discovery and Monitoring engine is deprecated
+            // because of deprecated warning :current Server Discovery and Monitoring engine is deprecated
             useUnifiedTopology: true,
             //
             useFindAndModify: true

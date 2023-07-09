@@ -12,7 +12,10 @@ const config = require('./config');
 
 const app = express()
 
-// -------- configrations and middlewares --------
+// -------- loading env files --------
+dotenv.config({ path: './.env' })
+//
+// -------- configurations and middleware --------
 config(app)
 //
 // -------- web Routes --------
