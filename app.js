@@ -12,7 +12,7 @@ const app = express()
 // -------- loading env files --------
 dotenv.config({ path: './.env' })
 //
-// -------- configrations and middlewares --------
+// -------- configurations and middleware --------
 config(app)
 //
 // -------- web Routes --------
