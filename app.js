@@ -28,14 +28,14 @@ const port = process.env.PORT || 1000
 
 if (process.env.SSL !== "TRUE") {
 
-    return  app.listen(port, () => {
+    return app.listen(port, () => {
         console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('http://localhost:') + chalk.yellow(port ? port : 1000)}`);
     })
 }
 
 const options = {
-    key: fs.readFileSync(process.env.PRIVATE_KEY, 'utf8'),
-    cert: fs.readFileSync(process.env.CERT_PATH, 'utf8')
+    key: fs.readFileSync(__dirname + process.env.PRIVATE_KEY, 'utf8'),
+    cert: fs.readFileSync(__dirname + process.env.CERT_PATH, 'utf8')
 };
 
 return https.createServer(options, app).listen(port, function () {
