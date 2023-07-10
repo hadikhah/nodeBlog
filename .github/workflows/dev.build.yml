@@ -51,7 +51,7 @@ jobs:
         port: ${{ secrets.SERVER_PORT }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-
+        envs: appPath
         script: |
           cd $appPath
           docker ps
