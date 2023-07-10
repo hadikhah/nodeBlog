@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN npm install
 
 # Bundle app source
-COPY . .
+COPY app.js ./
 
 # Expose port and start the app
 EXPOSE $PORT
