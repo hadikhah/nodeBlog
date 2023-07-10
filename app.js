@@ -1,7 +1,9 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const chalk = require('chalk');
+const https = require("https");
 // const morgan = require('morgan');
+const dotenv = require('dotenv');
+const fs = require('fs');
+const chalk = require('chalk');
 
 
 // -------- loading env files --------
@@ -20,9 +22,23 @@ config(app)
 //
 // -------- web Routes --------
 app.use(webRoutes)
-//
+// 
 
 const port = process.env.PORT || 1000
-app.listen(port, () => {
+
+if (process.env.SSL !== "TRUE") {
+
+    return  app.listen(port, () => {
+        console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('http://localhost:') + chalk.yellow(port ? port : 1000)}`);
+    })
+}
+
+const options = {
+    key: fs.readFileSync(process.env.PRIVATE_KEY, 'utf8'),
+    cert: fs.readFileSync(process.env.CERT_PATH, 'utf8')
+};
+
+return https.createServer(options, app).listen(port, function () {
     console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('http://localhost:') + chalk.yellow(port ? port : 1000)}`);
-})
+});
+
