@@ -49,7 +49,8 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
-          cd ${{ secrets.PATH_TO_APP_DEV }} |& tee -a /root/log.log
+          cd ${{ secrets.PATH_TO_APP_DEV }}
+          echo $(pwd) > /root/log.log 
           git pull |& tee -a /root/log.log
           cp .env.dev .env |& tee -a /root/log.log
           docker compose down |& tee -a /root/log.log
