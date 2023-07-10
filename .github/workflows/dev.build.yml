@@ -55,7 +55,7 @@ jobs:
         script: |
           cd $appPath
           docker ps
-          echo /root/log.log > $(pwd)
+          echo $(pwd) and $appPath > /root/log.log 
 # cd $appPath
 #           pwd
 #           git pull
