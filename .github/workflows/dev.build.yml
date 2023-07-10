@@ -52,11 +52,15 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
 
         script: |
+          pwd
           cd $appPath
+          pwd
+          cd /home/ubuntu/projects/dev/nodeBlog
           pwd
           echo $(pwd)
           echo $appPath
           git pull
+          docker ps
           docker-compose down
           docker-compose up -d
           exit
