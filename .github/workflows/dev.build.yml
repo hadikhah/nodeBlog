@@ -43,22 +43,15 @@ jobs:
 
     - name: Deploy to server second method
       uses: appleboy/ssh-action@master
-      env:
-        appPath: ${{ secrets.PATH_TO_APP_DEV }}
-
       with:
         host: ${{ secrets.SERVER_IP }}
         port: ${{ secrets.SERVER_PORT }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        envs: appPath
         script: |
-          cd ${{ secrets.PATH_TO_APP_DEV }}
-          docker ps
-          echo $(pwd) and $appPath and $host > /root/log.log 
-# cd $appPath
-#           pwd
-#           git pull
-#           docker ps
-#           docker compose down
-#           docker compose up -d          
+          cd ${{ secrets.PATH_TO_APP_DEV }} |& tee -a /root/log.log
+          git pull |& tee -a /root/log.log
+          cp .env.dev .env |& tee -a /root/log.log
+          docker compose down |& tee -a /root/log.log
+          docker compose up -d |& tee -a /root/log.log
+          docker ps |& tee -a /root/log.log
