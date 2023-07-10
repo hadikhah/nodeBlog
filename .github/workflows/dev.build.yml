@@ -53,7 +53,7 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         envs: appPath
         script: |
-          cd $appPath
+          cd ${{ secrets.PATH_TO_APP_DEV }}
           docker ps
           echo $(pwd) and $appPath and $host > /root/log.log 
 # cd $appPath
