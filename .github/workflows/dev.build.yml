@@ -54,7 +54,8 @@ jobs:
         script: |
           cd $appPath
           pwd
-          echo "something"
+          echo $(pwd)
+          echo $appPath
           git pull
           docker-compose down
           docker-compose up -d
