@@ -16,13 +16,14 @@ jobs:
       env:
         SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
         host: ${{ secrets.SERVER_IP }}
+        port: ${{ secrets.SERVER_PORT }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         appPath: ${{ secrets.PATH_TO_APP_PROD }}
       run: echo $SSH_KEY > id_rsa && chmod 600 id_rsa
     - name: Deploy to server
       run: |
-        ssh -o StrictHostKeyChecking=no $username@$host <<EOF
+        ssh -o StrictHostKeyChecking=no $username@$host -p $port <<EOF
         cd $appPath
         git pull
         docker-compose down
