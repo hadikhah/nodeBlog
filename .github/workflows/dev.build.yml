@@ -12,6 +12,23 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      env:
+        SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
+        host: ${{ secrets.SERVER_IP }}
+        port: ${{ secrets.SERVER_PORT }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        appPath: ${{ secrets.PATH_TO_APP_PROD }}
+      run: echo $SSH_KEY > id_rsa && chmod 600 id_rsa
+    - name: Deploy to server first method
+      run: |
+        ssh -o StrictHostKeyChecking=no $username@$host -p $port <<EOF
+        cd $appPath
+        git pull
+        docker-compose down
+        docker-compose up -d
+        exit
+        EOF
 
     # - name: Build Docker image
     #   uses: docker/build-push-action@v2
@@ -23,7 +40,7 @@ jobs:
     #       NODE_ENV=$DEV_ENV
     #       PORT=$DEV_PORT
 
-    - name: Deploy to server
+    - name: Deploy to server second method
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SERVER_IP }}
