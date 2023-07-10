@@ -4,11 +4,11 @@ services:
   nodejs:
     build: .
     ports:
-      - "3000:3000"
+      - ${PORT}:${PORT}
     depends_on:
       - mongodb
     environment:
-      - MONGODB_URI=${MONGODB_URI}
+      - MONGO_URI=${MONGO_URI}
     volumes:
       - ./.env:/usr/src/app/.env
 
