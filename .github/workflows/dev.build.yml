@@ -23,7 +23,7 @@ jobs:
       run: echo $SSH_KEY > id_rsa && chmod 600 id_rsa | echo $host
     - name: Deploy to server first method
       run: |
-        ssh $username@$host -p $port -o StrictHostKeyChecking=no <<EOF
+        ssh ubuntu@51.91.58.190 -p 2222 -o StrictHostKeyChecking=no <<EOF
         cd $appPath
         git pull
         docker-compose down
