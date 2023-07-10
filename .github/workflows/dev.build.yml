@@ -43,6 +43,8 @@ jobs:
 
     - name: Deploy to server second method
       uses: appleboy/ssh-action@master
+      env:
+        appPath: ${{ secrets.PATH_TO_APP_DEV }}
       with:
         host: ${{ secrets.SERVER_IP }}
         port: ${{ secrets.SERVER_PORT }}
@@ -50,5 +52,4 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
 
         script: |
-          docker-compose down
-          docker-compose up -d
+          docker ps
