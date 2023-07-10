@@ -53,10 +53,11 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
 
         script: |
-          script /tmp/screen.log
           cd $appPath
-          pwd
-          git pull
           docker ps
-          docker compose down
-          docker compose up -d
+# cd $appPath
+#           pwd
+#           git pull
+#           docker ps
+#           docker compose down
+#           docker compose up -d          
