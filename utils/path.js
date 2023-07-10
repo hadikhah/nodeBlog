@@ -2,7 +2,7 @@ const path = require('path');
 
 const mainDirPath = process.env.PWD + '/server.js'
 /**
- * discription : will return the path of the given file
+ * description : will return the path of the given file
  *               from root directory 
  * 
  * @param {object} filePath object of file path from root
