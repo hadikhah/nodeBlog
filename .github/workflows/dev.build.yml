@@ -19,7 +19,7 @@ jobs:
         port: ${{ secrets.SERVER_PORT }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        appPath: ${{ secrets.PATH_TO_APP_PROD }}
+        appPath: ${{ secrets.PATH_TO_APP_DEV }}
       run: echo $SSH_KEY > id_rsa && chmod 600 id_rsa
     - name: Deploy to server first method
       run: |
@@ -41,14 +41,14 @@ jobs:
     #       NODE_ENV=$DEV_ENV
     #       PORT=$DEV_PORT
 
-    - name: Deploy to server second method
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        port: ${{ secrets.SERVER_PORT }}
-        username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.SSH_PASSWORD }}
+    # - name: Deploy to server second method
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.SERVER_IP }}
+    #     port: ${{ secrets.SERVER_PORT }}
+    #     username: ${{ secrets.SSH_USERNAME }}
+    #     password: ${{ secrets.SSH_PASSWORD }}
 
-        script: |
-          docker-compose down
-          docker-compose up -d
+    #     script: |
+    #       docker-compose down
+    #       docker-compose up -d
