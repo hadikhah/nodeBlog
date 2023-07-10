@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         appPath: ${{ secrets.PATH_TO_APP_DEV }}
-      run: echo $SSH_KEY > id_rsa && chmod 600 id_rsa | echo "hello"
+      run: echo $SSH_KEY > id_rsa && chmod 600 id_rsa | echo $host
     - name: Deploy to server first method
       run: |
         ssh $username@$host -p $port -o StrictHostKeyChecking=no <<EOF
