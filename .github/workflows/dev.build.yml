@@ -21,7 +21,7 @@ jobs:
         appPath: ${{ secrets.PATH_TO_APP_PROD }}
       run: echo $SSH_KEY > id_rsa && chmod 600 id_rsa
     - name: Deploy to server first method
-      run: |
+      script: |
         ssh -o StrictHostKeyChecking=no $username@$host -p $port <<EOF
         cd $appPath
         git pull
