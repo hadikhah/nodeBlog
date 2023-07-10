@@ -45,6 +45,7 @@ jobs:
       uses: appleboy/ssh-action@master
       env:
         appPath: ${{ secrets.PATH_TO_APP_DEV }}
+
       with:
         host: ${{ secrets.SERVER_IP }}
         port: ${{ secrets.SERVER_PORT }}
@@ -52,15 +53,9 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
 
         script: |
-          pwd
           cd $appPath
-          pwd
-          cd /root/projects/dev/nodeBlog
-          pwd
-          echo $(pwd)
-          echo $appPath
           git pull
           docker ps
-          docker-compose down
-          docker-compose up -d
+          docker compose down
+          docker compose up -d
           exit
