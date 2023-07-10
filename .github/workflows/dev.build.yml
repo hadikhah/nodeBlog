@@ -55,7 +55,7 @@ jobs:
           pwd
           cd $appPath
           pwd
-          cd /home/ubuntu/projects/dev/nodeBlog
+          cd /root/projects/dev/nodeBlog
           pwd
           echo $(pwd)
           echo $appPath
