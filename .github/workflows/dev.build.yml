@@ -53,6 +53,7 @@ jobs:
 
         script: |
           cd $appPath
+          pwd
           git pull
           docker-compose down
           docker-compose up -d
