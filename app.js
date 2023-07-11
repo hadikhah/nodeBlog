@@ -39,6 +39,6 @@ const options = {
 };
 
 return https.createServer(options, app).listen(port, function () {
-    console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('http://localhost:') + chalk.yellow(port ? port : 1000)}`);
+    console.log(`app is runing in ${chalk.blue(process.env.NODE_ENV)} mode ${chalk.blue('https://localhost:') + chalk.yellow(port ? port : 1000)}`);
 });
 
