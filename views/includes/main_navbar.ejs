@@ -1,75 +1,65 @@
-<nav class="navbar is-fixed-top is-white">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-            <b>وبلاگ ما</b>
-        </a>
-        <a role="button" id="navbar-burger" class="navbar-burger" aria-label="menu" aria-expanded="true"
-            data-target="navbar-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-    </div>
-
-    <div id="navbar-menu" class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item" href="#">
-                Home
-            </a>
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="#">
-                    Docs
-                </a>
-                <div class="navbar-dropdown is-boxed">
-                    <a class="navbar-item" href="#">
-                        Overview
-                    </a>
-                    <a class="navbar-item" href="#">
-                        Modifiers
-                    </a>
-                    <a class="navbar-item" href="#">
-                        Columns
-                    </a>
-                    <a class="navbar-item" href="#">
-                        Layout
-                    </a>
-                    <a class="navbar-item" href="#">
-                        Form
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item" href="#">
-                        Elements
-                    </a>
-                    <a class="navbar-item is-active" href="#">
-                        Components
-                    </a>
+<nav class="navbar is-fixed-top  py-1  is-dark" role="navigation" aria-label="dropdown navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <div class="navbar-item mb-1">
+                    <img src="./img/logo.png" >
                 </div>
-            </div>
+                <b class="navbar-item has-text-light is-size-5 ">
+                    Blog
+                </b>
+            </a>
+
+            <a role="button" id="navbar-burger" class="navbar-burger" aria-label="menu" aria-expanded="true"
+                data-target="navbar-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
 
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="field is-grouped">
-                    <p class="control">
-                        <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet"
-                            data-social-target="https://bulma.io" target="_blank"
-                            href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
-                            <span class="icon">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                            <span>
-                                Tweet
-                            </span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a class="button is-rounded" href="/login">
-                            <span class="icon">
-                                <i class="fa fa-sign-in"></i>
-                            </span>
-                            <span>ورود / ثبت نام</span>
-                        </a>
-                    </p>
+        <div id="navbar-menu" class="navbar-menu is-size-6	 is-dark">
+            <div class="navbar-start px-6">
+                <a class="navbar-item" href="#">
+                    Home
+                </a>
+                <a class="navbar-item" href="#">
+                    Post
+                </a>
+                <a class="navbar-item" href="#">
+                    About
+                </a>
+                <a class="navbar-item" href="#">
+                    Contact
+                </a>
+
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a class="bd-tw-button button is-outlined is-black has-text-light"
+                                data-social-network="Twitter" data-social-action="tweet"
+                                data-social-target="https://bulma.io" target="_blank"
+                                href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
+                                <span class="icon">
+                                    <i class="fa fa-twitter"></i>
+                                </span>
+                                <span>
+                                    Tweet
+                                </span>
+                            </a>
+                        </p>
+                        <p class="control">
+                            <a class="button is-rounded is-outlined is-black has-text-light" href="/login">
+                                <span class="icon">
+                                    <i class="fa fa-sign-in"></i>
+                                </span>
+                                <span>Sign in</span>
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
