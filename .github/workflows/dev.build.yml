@@ -28,3 +28,4 @@ jobs:
           docker compose down |& tee -a /root/log.log
           docker compose up --build -d |& tee -a /root/log.log
           docker ps |& tee -a /root/log.log
+          echo $(date) >> /root/log.log
