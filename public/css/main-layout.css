@@ -1,3 +1,18 @@
 #app {
     margin-top: 55px;
 }
+
+@media screen and (max-width: 1023px) {
+    .navbar-menu.is-dark {
+        background-color: #363636;
+    }
+
+    .navbar-menu.is-dark .navbar-item, .navbar-link {
+        color: #fff;
+    }
+
+    .navbar-menu.is-dark .navbar-link.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
+        background: #0a0a0a;
+        color: #fff;
+    }
+}

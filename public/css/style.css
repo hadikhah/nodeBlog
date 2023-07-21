@@ -1,11 +1,11 @@
-*:before, *:after {
-    font-family: digikala;
-}
+/* *:before, *:after {
+    font-family: irs;
+} */
 
 input, button {
-    font-family: irs;
+    font-family: irs,sans-serif;
 }
 
 body, html {
-    font-family: irs;
+    font-family: irs,sans-serif;
 }
