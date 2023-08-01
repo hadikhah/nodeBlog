@@ -1,0 +1,16 @@
+<% if (flash.form_error ) {%>
+    <article class="message is-danger">
+        <div class="message-body">
+            <ul>
+
+                <% flash.form_error.forEach((error)=>{%>
+
+                    <li>
+                        <%= error %>
+                    </li>
+                    <%})%>
+
+            </ul>
+        </div>
+    </article>
+    <% }%>

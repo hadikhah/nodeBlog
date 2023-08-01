@@ -1,0 +1,16 @@
+<% if (flash.form_success ) {%>
+    <article class="message is-success">
+        <div class="message-body">
+            <ul>
+
+                <% flash.form_success.forEach((message)=>{%>
+
+                    <li>
+                        <%= message %>
+                    </li>
+                    <%})%>
+
+            </ul>
+        </div>
+    </article>
+    <% }%>
