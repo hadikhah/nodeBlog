@@ -10,7 +10,7 @@ class LoginController {
     }
 
     showLoginForm(req, res) {
-        res.render('login', { pageTitle: "ورود", layout: "layouts/base" })
+        res.render('auth/login', { pageTitle: "Sign in", layout: "layouts/base" })
     }
 
 }

@@ -1,0 +1,63 @@
+<section class="section hero is-fullheight is-error-section">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <div class="card has-card-header-background">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <span class="icon"><i class="mdi mdi-lock default"></i></span>
+                                <span>Sign in</span>
+                            </p>
+                            <a href="/" class="button is-small">Home Page</a>
+                        </header>
+                        <div class="card-content">
+                            <form method="POST">
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control">
+                                        <input style="direction: ltr;" type="email" autocomplete="on" name="username"
+                                            class="input" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <div class="control">
+                                        <input style="direction: ltr;" type="password" autocomplete="on" name="password"
+                                            class="input" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="b-checkbox checkbox is-thin"><input type="checkbox" value="false">
+                                        <span class="check is-black"></span>
+                                        <span class="control-label">Remember me</span>
+                                    </label>
+                                </div>
+                                <div class="field">
+                                    <label class="b-checkbox checkbox is-thin">
+                                        <span class="check is-black"></span>
+                                        <span class="control-label">don't have an account yet? <a href="/register">Sign up</a></span>
+                                    </label>
+                                </div>
+                                <hr>
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button type="submit" class="button is-black">
+                                            Sign in
+                                        </button>
+                                    </div>
+                                    <div class="control">
+                                        <a href="/password/reset" class="button is-outlined is-black">
+                                            Forgot the password?
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

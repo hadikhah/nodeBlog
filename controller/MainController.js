@@ -1,6 +1,6 @@
 class MainController {
     showIndexPage(req, res) {
-        res.render('index', { pageTitle: "وبلاگ" })
+        return res.render('blog/index', { pageTitle: "Blog | Home" })
     }
 }
 module.exports = MainController;
