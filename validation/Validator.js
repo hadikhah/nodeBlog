@@ -14,7 +14,6 @@ const Validator = (schema, req, res, next) => {
     // strip unknown : removes the fields from body that aren't specified in the schema
     schema.validate(req.body, { abortEarly: false, stripUnknown: true })
         .then((result) => {
-
             // setFormSuccessMessage(req, "form validation was successful")
 
             next();
@@ -24,7 +23,7 @@ const Validator = (schema, req, res, next) => {
             setPreviousFormErrors(req, err.errors)
             setPreviousFormData(req, req.body)
 
-            return res.redirect("back");
+            return res.redirect("back")
         });
 };
 

@@ -21,7 +21,7 @@ const RegisterFormValidationSchema = yup.object().shape({
  */
 const RegisterValidation = (req, res, next) => {
 
-    checkUnique(User, { email: req.body.email }, req, "email").then(res => {
+    checkUnique(User, { email: req.body.email }, req, "email").then(result => {
 
         Validator(RegisterFormValidationSchema, req, res, next);
 
