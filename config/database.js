@@ -11,7 +11,7 @@ const connectDB = async () => {
             //
             useFindAndModify: true
         })
-        console.log(`mogo connected to: ${chalk.blue(conn.connection.host)} `)
+        console.log(`mongo connected to: ${chalk.blue(conn.connection.host)} `)
     } catch (err) {
         console.log(err);
         process.exit(1)
