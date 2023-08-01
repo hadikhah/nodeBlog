@@ -4,7 +4,11 @@ const morgan = require('morgan');
 const compression = require('compression');
 const expressLayouts = require('express-ejs-layouts');
 
-// const connectDB = require('./database');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
+const connectDB = require('./database');
 const makePath = require("../utils/path")
 
 /**
@@ -15,7 +19,7 @@ const makePath = require("../utils/path")
 
 function config(app) {
     // -------- connecting to DB --------
-    // connectDB()
+    connectDB()
     //
     // ---------- Middleware configs ----------
     /*  
@@ -48,6 +52,28 @@ function config(app) {
     app.use(express.static(makePath(["node_modules", "bulma"])))
     app.use(express.static(makePath(["node_modules", "font-awesome"])))
     // 
+
+    // ---------- flash session ----------
+    app.use(cookieParser());
+    app.use(session({ cookie: { maxAge: 60000 }, secret: 'secret', }));
+    app.use(flash());
+    app.use(function (req, res, next) {
+        //  adds flash sessions to the local variables so 
+        //  they will be available inside views
+        res.locals.flash = req.flash();
+
+        // after validations fail and redirects, form values
+        // will be stored in form_body so the user 
+        // won't miss the input values
+        if (res.locals.flash.form_body) {
+            const form_body = JSON.parse(res.locals.flash.form_body)
+            res.locals.flash.form_body = form_body
+        }
+        
+        next();
+    });
+    //
+
 }
 
 module.exports = config;
