@@ -1,8 +1,9 @@
 const router = require('express').Router();
+// const RegisterValidation = require('../validation/RegisterValidation');
 const {
     LoginController, RegisterController, ResetPasswordController,
     DashboardController,
-    MainController,
+    MainController, RegisterValidation
 }
     = require('./main')
 
@@ -18,9 +19,7 @@ router.get("/dashboard/vue/.*/", DashboardController.showDashboardVuePage)
 router.get(/.*/, DashboardController.showDashboardVuePage)
 
 
-router.post('/register', RegisterController.Register)
-
-
+router.post('/register', RegisterValidation, RegisterController.Register)
 
 // 404 error page
 router.use((req, res) => {

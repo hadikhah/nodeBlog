@@ -1,24 +1,40 @@
-const Validator = require('fastest-validator');
-const V = new Validator({
-    // useNewCustomCheckerFunction: true,
+const User = require('../../models/User');
+const { setFormSuccessMessage } = require('../../validation/Validator');
 
-})
-const Schema = require('../../rules/registerRule')
 class RegisterController {
-    constructor() {
+
+    showRegisterForm(req, res, next) {
+
+        return res.render('auth/register', { pageTitle: "Sign up", layout: "layouts/base" })
 
     }
-    showRegisterForm(req, res) {
-        // res.send(RegisterController.registerSchema)
-        res.render('register', { pageTitle: "ثبت نام", layout: "layouts/base" })
-    }
+
+
+    /**
+     * renders the sign up page
+     *
+     * @param {*} req
+     * @param {*} res
+     * @return {*} 
+     * @memberof RegisterController
+     */
     Register(req, res) {
-        // console.log(Schema);
-        console.log(req.body);
-        // V.validate(req.body, Schema)
-        const check = V.compile(Schema)
-        if (check(req.body, Schema))
-            return res.redirect('/register')
+
+        const user = new User(req.body);
+
+        user.save().then(() => {
+
+            setFormSuccessMessage(req, "Sign up was successful")
+
+            return res.redirect("/")
+
+        }).catch(err => {
+
+            console.log("hello this is error", err)
+
+            redirect("/404")
+        });
+
     }
 
 }

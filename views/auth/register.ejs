@@ -1,0 +1,73 @@
+<section class="section hero is-fullheight is-error-section">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <div class="card has-card-header-background">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <span class="icon"><i class="mdi mdi-lock default"></i></span>
+                                <span>Sign up </span>
+                            </p>
+                            <a href="/" class="button is-small">Home Page</a>
+                        </header>
+                        <div class="card-content">
+                            <%- include("../includes/messages.ejs") %>
+                                <form method="POST">
+                                    <div class="field">
+                                        <label class="label">First name</label>
+                                        <div class="control">
+                                            <input type="text" value="<%= flash.form_body?.first_name||"" %>"
+                                                autocomplete="on" name="first_name" class="input" autofocus requried>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Last name</label>
+                                        <div class="control">
+                                            <input type="text" value="<%= flash.form_body?.last_name||"" %>"
+                                                autocomplete="on" name="last_name" class="input" autofocus requried>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Email</label>
+                                        <div class="control">
+                                            <input style="direction: ltr;" value="<%= flash.form_body?.email||"" %>"
+                                                autocomplete="on" name="email" class="input" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Password</label>
+                                        <div class="control">
+                                            <input value="<%= flash.form_body?.password||"" %>" style="direction: ltr;"
+                                                type="password" autocomplete="on" name="password" class="input"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Confirm password</label>
+                                        <div class="control">
+                                            <input style="direction: ltr;" type="password" autocomplete="on"
+                                                name="confirm_password" class="input" required>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button type="submit" class="button is-black">
+                                                Submit
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <span>already have an account ? <a href="/login">Sign in</a></span>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
