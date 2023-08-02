@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/hadikhah/nodeBlog#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bulma": "^0.9.2",
     "chalk": "^4.1.0",
     "compression": "^1.7.4",
@@ -40,6 +41,7 @@
     "font-awesome": "^4.7.0",
     "mongoose": "^5.11.19",
     "morgan": "^1.10.0",
+    "passport-local": "^1.0.0",
     "yup": "^0.29.3"
   },
   "devDependencies": {
