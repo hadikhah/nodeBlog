@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 const User = require('../../models/User');
 const { setFormSuccessMessage } = require('../../validation/Validator');
 
@@ -20,20 +22,25 @@ class RegisterController {
      */
     Register(req, res) {
 
-        const user = new User(req.body);
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
 
-        user.save().then(() => {
+            req.body.password = hash
 
-            setFormSuccessMessage(req, "Sign up was successful")
+            const user = new User(req.body);
 
-            return res.redirect("/")
+            user.save().then(() => {
 
-        }).catch(err => {
+                setFormSuccessMessage(req, "Sign up was successful")
 
-            console.log("hello this is error", err)
+                return res.redirect("/")
 
-            redirect("/404")
-        });
+            }).catch(err => {
+
+                console.log("hello this is error", err)
+
+                redirect("/404")
+            });
+        })
 
     }
 
