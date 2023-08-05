@@ -1,12 +1,23 @@
 const router = require('express').Router();
+// auth controllers
+const LoginController = require('../controller/Auth/LoginController');
 const LogoutController = require('../controller/Auth/LogoutController');
+const RegisterController = require('../controller/Auth/RegisterController');
+const ResetPasswordController = require('../controller/Auth/ResetPasswordController');
+
+// middleware
 const auth = require('../middleware/auth');
 const guest = require('../middleware/guest');
-// const RegisterValidation = require('../validation/RegisterValidation');
+
+const RegisterValidation = require('../validation/RegisterValidation');
+
+
 const {
-    LoginController, RegisterController, ResetPasswordController,
+    // RegisterController,
+    // ResetPasswordController,
     DashboardController,
-    MainController, RegisterValidation
+    MainController,
+    //  RegisterValidation
 }
     = require('./main')
 

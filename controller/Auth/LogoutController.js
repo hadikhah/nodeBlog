@@ -1,3 +1,10 @@
+/**
+ *  handles the logout process
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 exports.HandleLogout = (req, res, next) => {
 
     req.logout(err => {
@@ -8,5 +15,3 @@ exports.HandleLogout = (req, res, next) => {
 
 
 }
-
-// module.exports = { HandleLogout }
