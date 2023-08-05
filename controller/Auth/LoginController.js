@@ -22,7 +22,6 @@ exports.showLoginForm = (req, res) => {
  */
 exports.authenticate = (req, res, next) => passport.authenticate("local", {
 
-    successRedirect: req.session.redirectsTo ?? "/",
     failureRedirect: "/login",
     failureFlash: true
 
@@ -41,4 +40,22 @@ exports.handleLoginForm = (req, res, next) => {
 
     this.authenticate(req, res, next)
 
+}
+
+/**
+ * handles remember me checkbox of login form
+ *
+ * @param {*} req
+ * @param {*} res
+ * @return {*} 
+ */
+exports.rememberMe = (req, res) => {
+
+    if (req.body.remember)
+        req.session.cookie.originalMaxAge = 7 * 24 * 60 * 60 * 1000 //one week
+
+    else
+        req.session.cookie.expires = false
+
+    return res.redirect(req.session.redirectsTo ?? "/")
 }

@@ -25,7 +25,7 @@ const {
 router.get('/', MainController.showIndexPage)
 //auth pages
 router.get('/login', guest, LoginController.showLoginForm)
-router.post('/login', guest, LoginController.handleLoginForm)
+router.post('/login', guest, LoginController.handleLoginForm, LoginController.rememberMe)
 
 router.get('/register', guest, RegisterController.showRegisterForm)
 router.post('/register', guest, RegisterValidation, RegisterController.Register)
