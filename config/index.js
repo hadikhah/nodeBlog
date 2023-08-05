@@ -13,6 +13,7 @@ const mongoose = require('mongoose');
 
 const connectDB = require('./database');
 const makePath = require("../utils/path");
+const winston = require('./winston');
 
 /**
  * configs
@@ -31,7 +32,9 @@ function config(app) {
     |    just change development
     |    to whatever you want
     */
-    if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
+    // if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
+    // using morgan in every environment
+    app.use(morgan("combined", { stream: winston.stream }))
     /**/
     app.use(express.urlencoded({ extended: false }))
     //
@@ -100,7 +103,6 @@ function config(app) {
         }
 
         // adds user authentication status to local variables so they'll be available in views by default
-        // res.locals.auth.isAuth = 
 
         next()
     })
