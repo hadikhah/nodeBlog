@@ -41,6 +41,7 @@
     "font-awesome": "^4.7.0",
     "mongoose": "^5.11.19",
     "morgan": "^1.10.0",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "yup": "^0.29.3"
   },
