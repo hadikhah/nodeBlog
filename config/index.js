@@ -9,7 +9,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const connectDB = require('./database');
-const makePath = require("../utils/path")
+const makePath = require("../utils/path");
+const passport = require('passport');
 
 /**
  * configs
@@ -53,9 +54,19 @@ function config(app) {
     app.use(express.static(makePath(["node_modules", "font-awesome"])))
     // 
 
-    // ---------- flash session ----------
+    // ---------- sessions ----------
     app.use(cookieParser());
-    app.use(session({ cookie: { maxAge: 60000 }, secret: 'secret', }));
+    app.use(
+        session({
+            cookie: { maxAge: 60000 },
+            secret: 'secret',
+            resave: false,
+            saveUninitialized: false
+        })
+    );
+
+
+    // ---------- flash session ----------
     app.use(flash());
     app.use(function (req, res, next) {
         //  adds flash sessions to the local variables so 
@@ -69,10 +80,28 @@ function config(app) {
             const form_body = JSON.parse(res.locals.flash.form_body)
             res.locals.flash.form_body = form_body
         }
-        
+
         next();
     });
-    //
+    // ---------- passport ----------
+    require('./passport');
+    app.use(passport.initialize())
+    app.use(passport.session())
+
+    app.use(function (req, res, next) {
+        // adds user data to the local variables if user is authenticated
+        res.locals = {
+            ...res.locals, auth: {
+                user: req.user,
+                isAuth: req.isAuthenticated()
+            }
+        }
+
+        // adds user authentication status to local variables so they'll be available in views by default
+        // res.locals.auth.isAuth = 
+
+        next()
+    })
 
 }
 
