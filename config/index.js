@@ -7,10 +7,12 @@ const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const passport = require('passport');
+const mongoose = require('mongoose');
 
 const connectDB = require('./database');
 const makePath = require("../utils/path");
-const passport = require('passport');
 
 /**
  * configs
@@ -58,10 +60,10 @@ function config(app) {
     app.use(cookieParser());
     app.use(
         session({
-            cookie: { maxAge: 60000 },
             secret: 'secret',
             resave: false,
-            saveUninitialized: false
+            saveUninitialized: false,
+            store: MongoStore.create(mongoose.connection)
         })
     );
 
