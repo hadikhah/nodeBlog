@@ -3,7 +3,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
                 <div class="navbar-item mb-1">
-                    <img src="./img/logo.png" >
+                    <img src="./img/logo.png">
                 </div>
                 <b class="navbar-item has-text-light is-size-5 ">
                     Blog
@@ -38,26 +38,28 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="field is-grouped">
+
                         <p class="control">
-                            <a class="bd-tw-button button is-outlined is-black has-text-light"
-                                data-social-network="Twitter" data-social-action="tweet"
-                                data-social-target="https://bulma.io" target="_blank"
-                                href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
-                                <span class="icon">
-                                    <i class="fa fa-twitter"></i>
-                                </span>
-                                <span>
-                                    Tweet
-                                </span>
-                            </a>
-                        </p>
-                        <p class="control">
-                            <a class="button is-rounded is-outlined is-black has-text-light" href="/login">
-                                <span class="icon">
-                                    <i class="fa fa-sign-in"></i>
-                                </span>
-                                <span>Sign in</span>
-                            </a>
+                            <% if(auth.isAuth){ %>
+                                <form method="post" action="/logout">
+                                    <button type="submit" class="button is-rounded is-outlined is-black has-text-light"
+                                        href="/login">
+                                        <span>log out</span>
+                                        <span class="icon">
+                                            <i class="fa fa-sign-in"></i>
+                                        </span>
+                                    </button>
+                                </form>
+                                <% } else{%>
+                                    <a class="button is-rounded is-outlined is-black has-text-light" href="/login">
+                                        <span class="icon">
+                                            <i class="fa fa-sign-in"></i>
+                                        </span>
+                                        <!-- <%= auth.user?.first_name%> -->
+                                        <span>Sign in</span>
+                                    </a>
+                                    <% }%>
+
                         </p>
                     </div>
                 </div>
