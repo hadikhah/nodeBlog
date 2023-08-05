@@ -14,3 +14,19 @@
         </div>
     </article>
     <% }%>
+        <% if (flash.error ) {%>
+            <article class="message is-danger">
+                <div class="message-body">
+                    <ul>
+
+                        <% flash.error.forEach((error)=>{%>
+
+                            <li>
+                                <%= error %>
+                            </li>
+                            <%})%>
+
+                    </ul>
+                </div>
+            </article>
+            <% }%>
