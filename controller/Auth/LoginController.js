@@ -1,16 +1,19 @@
-class LoginController {
-    loginSchema = {
-        username: {
-            type: "email",
+const passport = require("passport");
 
-        },
-        password: {
-            type: "string", min: 6
-        }
-    }
+class LoginController {
 
     showLoginForm(req, res) {
         res.render('auth/login', { pageTitle: "Sign in", layout: "layouts/base" })
+    }
+
+    handleLoginForm(req, res, next) {
+        const authenticate = passport.authenticate("local", {
+            successRedirect: req.session.redirectsTo ?? "/",
+            failureRedirect: "/login",
+            failureFlash: true
+        })
+
+        authenticate(req, res, next)
     }
 
 }
