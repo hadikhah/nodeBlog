@@ -24,8 +24,8 @@ jobs:
                       echo $(pwd) > /root/log.log 
                       git pull |& tee -a /root/log.log
                       cp .env.dev .env |& tee -a /root/log.log
-                      echo HCAPTCHA_SITE_KEY="${{ secrets.HCAPTCHA_SITE_KEY }}" >> .env
-                      echo HCAPTCHA_SECRET=${{secrets.HCAPTCHA_SECRET}} >> .env
+                      echo "HCAPTCHA_SITE_KEY='${{ secrets.HCAPTCHA_SITE_KEY }}'" >> .env |& tee -a /root/log.log
+                      echo "HCAPTCHA_SECRET=${{secrets.HCAPTCHA_SECRET}}" >> .env |& tee -a /root/log.log
                       docker compose down |& tee -a /root/log.log
                       docker compose up --build -d |& tee -a /root/log.log
                       docker ps |& tee -a /root/log.log
