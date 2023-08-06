@@ -8,7 +8,7 @@ const RegisterFormValidationSchema = yup.object().shape({
     last_name: yup.string().required().min(4).max(255),
     email: yup.string().email().required(),
     password: yup.string().required().min(6).max(255),
-    confirm_password: yup.string().required().oneOf([yup.ref("password"), null]),
+    confirm_password: yup.string().required().oneOf([yup.ref("password"), null], "passwords do not match"),
 
 });
 
