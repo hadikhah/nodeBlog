@@ -24,6 +24,8 @@ jobs:
                     HCAPTCHA_SECRET:${{ secrets.HCAPTCHA_SECRET }}
                   script: |
                       cd ${{ secrets.PATH_TO_APP_DEV }}
+                      HCAPTCHA_SITE_KEY="${{ secrets.HCAPTCHA_SITE_KEY }}"
+                      HCAPTCHA_SECRET="${{ secrets.HCAPTCHA_SECRET }}"
                       echo $(pwd) > /root/log.log 
                       git pull |& tee -a /root/log.log
                       cp .env.dev .env |& tee -a /root/log.log
