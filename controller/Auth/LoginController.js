@@ -1,5 +1,7 @@
 const passport = require("passport");
+const { verify } = require('hcaptcha');
 
+const { setPreviousFormErrors } = require("../../validation/Validator");
 
 /**
  * showing login page
@@ -58,4 +60,30 @@ exports.rememberMe = (req, res) => {
         req.session.cookie.expires = false
 
     return res.redirect(req.session.redirectsTo ?? "/")
+}
+
+exports.handleCaptcha = (req, res, next) => {
+
+    const token = req.body["h-captcha-response"];
+    const secret = res.locals.env().HCAPTCHA_SECRET;
+
+    verify(secret, token)
+        .then((data) => {
+            if (data.success === true) {
+                console.log('success! captcha', data);
+
+                return next()
+
+            } else {
+                console.log('captcha failed');
+
+                setPreviousFormErrors(req, ["not valid captcha"])
+
+                return res.redirect('back')
+            }
+        })
+        .catch(console.error);
+
+
+
 }

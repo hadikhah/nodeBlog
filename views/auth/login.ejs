@@ -29,6 +29,14 @@
                                                 name="password" class="input" required>
                                         </div>
                                     </div>
+                                    <!-- hcaptcha here -->
+                                    <div class="field ">
+                                        <label class="label">captcha</label>
+                                        <div class="control px-4 mx-4 ">
+                                            <%- include("../includes/hcaptcha/hcaptcha.ejs") %>
+                                        </div>
+                                    </div>
+
                                     <div class="field">
                                         <label class="b-checkbox checkbox is-thin"><input name="remember"
                                                 type="checkbox" value="true">
