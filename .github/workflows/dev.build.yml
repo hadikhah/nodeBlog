@@ -14,18 +14,20 @@ jobs:
 
             - name: Deploy to server second method
               uses: appleboy/ssh-action@master
+              env:
+                HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
+                HCAPTCHA_SECRET: ${{ secrets.HCAPTCHA_SECRET }}
+               
+                # HCAPTCHA_SITE_KEY="${{ secrets.HCAPTCHA_SITE_KEY }}"
+                # HCAPTCHA_SECRET="${{ secrets.HCAPTCHA_SECRET }}"
               with:
                   host: ${{ secrets.SERVER_IP }}
                   port: ${{ secrets.SERVER_PORT }}
                   username: ${{ secrets.SSH_USERNAME }}
                   password: ${{ secrets.SSH_PASSWORD }}
-                  env:
-                    HCAPTCHA_SITE_KEY:${{ secrets.HCAPTCHA_SITE_KEY }}
-                    HCAPTCHA_SECRET:${{ secrets.HCAPTCHA_SECRET }}
+                  envs: HCAPTCHA_SITE_KEY, HCAPTCHA_SECRET
                   script: |
                       cd ${{ secrets.PATH_TO_APP_DEV }}
-                      HCAPTCHA_SITE_KEY="${{ secrets.HCAPTCHA_SITE_KEY }}"
-                      HCAPTCHA_SECRET="${{ secrets.HCAPTCHA_SECRET }}"
                       echo $(pwd) > /root/log.log 
                       git pull |& tee -a /root/log.log
                       cp .env.dev .env |& tee -a /root/log.log
