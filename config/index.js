@@ -96,9 +96,14 @@ function config(app) {
     app.use(function (req, res, next) {
         // adds user data to the local variables if user is authenticated
         res.locals = {
-            ...res.locals, auth: {
+            ...res.locals,
+            auth: {
                 user: req.user,
-                isAuth: req.isAuthenticated()
+                isAuth: req.isAuthenticated(),
+            },
+            // adds env variables to the local variables 
+            env: function () {
+                return { ...process.env }
             }
         }
 
