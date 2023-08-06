@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
+const { verify } = require('hcaptcha');
 
 const User = require('../../models/User');
-const { setFormSuccessMessage } = require('../../validation/Validator');
+const { setFormSuccessMessage, setPreviousFormErrors } = require('../../validation/Validator');
 
 /**
  * renders the sign up page
@@ -49,5 +50,36 @@ exports.Register = (req, res) => {
             redirect("/404")
         });
     })
+
+}
+
+/**
+ * handles hcaptcha check box in login form
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.handleCaptcha = (req, res, next) => {
+
+    const token = req.body["h-captcha-response"];
+    const secret = res.locals.env().HCAPTCHA_SECRET;
+
+    verify(secret, token)
+        .then((data) => {
+            if (data.success === true) {
+                console.log('success! captcha', data);
+
+                return next()
+
+            } else {
+                console.log('captcha failed');
+
+                setPreviousFormErrors(req, ["invalid captcha"])
+
+                return res.redirect('back')
+            }
+        })
+        .catch(console.error);
 
 }

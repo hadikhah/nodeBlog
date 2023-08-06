@@ -28,7 +28,7 @@ router.get('/login', guest, LoginController.showLoginForm)
 router.post('/login', guest, LoginController.handleCaptcha, LoginController.handleLoginForm, LoginController.rememberMe)
 
 router.get('/register', guest, RegisterController.showRegisterForm)
-router.post('/register', guest, RegisterValidation, RegisterController.Register)
+router.post('/register', guest, RegisterValidation, RegisterController.handleCaptcha, RegisterController.Register)
 
 router.post('/logout', auth, LogoutController.HandleLogout)
 

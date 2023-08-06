@@ -62,6 +62,13 @@ exports.rememberMe = (req, res) => {
     return res.redirect(req.session.redirectsTo ?? "/")
 }
 
+/**
+ * handles hcaptcha check box in login form
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 exports.handleCaptcha = (req, res, next) => {
 
     const token = req.body["h-captcha-response"];
@@ -77,13 +84,11 @@ exports.handleCaptcha = (req, res, next) => {
             } else {
                 console.log('captcha failed');
 
-                setPreviousFormErrors(req, ["not valid captcha"])
+                setPreviousFormErrors(req, ["invalid captcha"])
 
                 return res.redirect('back')
             }
         })
         .catch(console.error);
-
-
 
 }
