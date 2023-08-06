@@ -1,5 +1,3 @@
-# echo -n "HCAPTCHA_SITE_KEY=$HCAPTCHA_SITE_KEY" >> .env |& tee -a /root/log.log
-# echo -n "HCAPTCHA_SECRET=$HCAPTCHA_SECRET" >> .env |& tee -a /root/log.log
 name: DEV build
 
 on:
@@ -16,24 +14,21 @@ jobs:
 
             - name: Deploy to server second method
               uses: appleboy/ssh-action@master
-              env:
-                  HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
-                  HCAPTCHA_SECRET: ${{ secrets.HCAPTCHA_SECRET }}
-
               with:
                   host: ${{ secrets.SERVER_IP }}
                   port: ${{ secrets.SERVER_PORT }}
                   username: ${{ secrets.SSH_USERNAME }}
                   password: ${{ secrets.SSH_PASSWORD }}
+                  envs:
+                    HCAPTCHA_SITE_KEY:${{ secrets.HCAPTCHA_SITE_KEY }}
+                    HCAPTCHA_SECRET:${{ secrets.HCAPTCHA_SECRET }}
                   script: |
                       cd ${{ secrets.PATH_TO_APP_DEV }}
                       echo $(pwd) > /root/log.log 
                       git pull |& tee -a /root/log.log
                       cp .env.dev .env |& tee -a /root/log.log
-                      cat >> .env << EOF
-                        HCAPTCHA_SITE_KEY=$HCAPTCHA_SITE_KEY
-                        HCAPTCHA_SECRET=$HCAPTCHA_SECRET
-                      EOF 
+                      echo -n "HCAPTCHA_SITE_KEY=$HCAPTCHA_SITE_KEY" >> .env
+                      echo-n "HCAPTCHA_SECRET=$HCAPTCHA_SECRET" >> .env
                       docker compose down |& tee -a /root/log.log
                       docker compose up --build -d |& tee -a /root/log.log
                       docker ps |& tee -a /root/log.log
