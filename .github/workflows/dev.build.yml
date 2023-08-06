@@ -19,7 +19,7 @@ jobs:
                   port: ${{ secrets.SERVER_PORT }}
                   username: ${{ secrets.SSH_USERNAME }}
                   password: ${{ secrets.SSH_PASSWORD }}
-                  envs:
+                  env:
                     HCAPTCHA_SITE_KEY:${{ secrets.HCAPTCHA_SITE_KEY }}
                     HCAPTCHA_SECRET:${{ secrets.HCAPTCHA_SECRET }}
                   script: |
