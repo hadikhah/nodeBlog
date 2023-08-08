@@ -5,21 +5,18 @@ const LogoutController = require('../controller/Auth/LogoutController');
 const RegisterController = require('../controller/Auth/RegisterController');
 const ResetPasswordController = require('../controller/Auth/ResetPasswordController');
 
+// main page controller 
+const MainController = require('../controller/MainController');
+
+// dashboard controllers
+const DashboardController = require('../controller/Dashboard/DashboardController');
+
 // middleware
 const auth = require('../middleware/auth');
 const guest = require('../middleware/guest');
 
 const RegisterValidation = require('../validation/RegisterValidation');
 
-
-const {
-    // RegisterController,
-    // ResetPasswordController,
-    DashboardController,
-    MainController,
-    //  RegisterValidation
-}
-    = require('./main')
 
 //home page
 router.get('/', MainController.showIndexPage)
@@ -34,9 +31,8 @@ router.post('/logout', auth, LogoutController.HandleLogout)
 
 router.get('/password/reset', ResetPasswordController.showEmailRequestForm)
 //dashboard page
-router.get('/dashboard', auth, DashboardController.showDahsboardPage)
-router.get("/dashboard/vue/.*/", DashboardController.showDashboardVuePage)
-router.get(/.*/, DashboardController.showDashboardVuePage)
+router.get('/dashboard', auth, DashboardController.showDashboardPage)
+// router.get("/dashboard/vue/.*/", DashboardController.showDashboardVuePage)
 
 
 
