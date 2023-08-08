@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./database');
 const makePath = require("../utils/path");
 const winston = require('./winston');
+const { run } = require('../database/mainSeeder');
 
 /**
  * configs
@@ -111,6 +112,12 @@ function config(app) {
 
         next()
     })
+
+
+    // ---------- data seeds ----------
+    console.log("running seeders")
+    run();
+
 
 }
 
