@@ -55,7 +55,6 @@ function config(app) {
     //
     // ---------- statice files ----------
     app.use(express.static(makePath(["public"])))
-    console.log(makePath(["public"]));
     app.use(express.static(makePath(["node_modules", "bulma"])))
     app.use(express.static(makePath(["node_modules", "font-awesome"])))
     // 
