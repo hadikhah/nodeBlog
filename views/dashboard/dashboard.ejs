@@ -1,7 +1,5 @@
-<div id="app">
-    <%- include("../includes/dashboard/navbar.ejs") %>
+<!-- <div id="app"> -->
 
-        <%- include("../includes/dashboard/sidebar.ejs") %>
 
             <section class="section is-title-bar">
                 <div class="level">
@@ -22,14 +20,18 @@
                         <div class="level-left">
                             <div class="level-item is-hero-avatar-item">
                                 <div class="image is-user-avatar"><img
-                                        src="https://avatars.dicebear.com/v2/initials/احسان-علیخانی.svg">
+                                        src="https://api.dicebear.com/6.x/initials/svg?seed=<%= auth.user.first_name.charAt(0) %><%= auth.user.last_name.charAt(0) %>">
                                 </div>
                             </div>
                             <div class="level-item is-hero-content-item">
                                 <div>
-                                    <h1 class="title is-spaced"><b>احسان علیخانی</b> عزیز </h1>
-                                    <h3 class="subtitle">آخزین ورود <b>۱۲دقیقه قبل </b>از طریق <b>192.168.1.1</b></h3>
-                                    <p>شما <b>۶ فعالیت</b> و <b>84 سوال</b> برای امروز دارید</p>
+                                    <h1 class="title is-spaced"><b>
+                                            <%= auth.user.first_name %>
+                                                <%= auth.user.last_name %>
+                                                    <h3 class="subtitle">آخزین ورود <b>۱۲دقیقه قبل </b>از طریق
+                                                        <b>192.168.1.1</b>
+                                                    </h3>
+                                                    <p>شما <b>۶ فعالیت</b> و <b>84 سوال</b> برای امروز دارید</p>
                                 </div>
                             </div>
                         </div>
@@ -449,11 +451,14 @@
                                         <tr>
                                             <td class="is-image-cell">
                                                 <div class="image">
-                                                    <img src="https://avatars.dicebear.com/v2/initials/احسان-علیخانی.svg"
+                                                    <img src="https://api.dicebear.com/6.x/initials/svg?seed=<%= auth.user.first_name.charAt(0) %><%= auth.user.last_name.charAt(0) %>"
                                                         class="is-rounded">
                                                 </div>
                                             </td>
-                                            <td data-label="نام">احسان علیخانی</td>
+                                            <td data-label="نام">
+                                                <%= auth.user.first_name %>
+                                                    <%= auth.user.last_name %>
+                                            </td>
                                             <td data-label="شرکت">
                                                 عصر جدید
                                             </td>
@@ -510,72 +515,9 @@
                 </div>
             </section>
 
-            <aside class="aside is-expanded is-placed-right">
-                <div class="aside-container jb-has-perfect-scrollbar">
-                    <div>
-                        <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>پیام اول این پیام اول آزمایشیه</p>
-                                </div>
-                                <nav class="level is-mobile">
-                                    <div class="level-left">
-                                        <div class="level-item">
-                                            <span class="tag is-small is-danger">
-                                                <span class="icon is-small"><i class="mdi mdi-information"></i></span>
-                                            </span>
-                                        </div>
-                                        <div class="level-item"><small>
-                                                دو ماه پیش
-                                            </small></div>
-                                    </div>
-                                </nav>
-                            </div>
-                        </article>
-                        <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>Nihil debitis optio non beatae a suscipit...</p>
-                                </div>
-                                <nav class="level is-mobile">
-                                    <div class="level-left">
-                                        <div class="level-item">
-                                            <span class="tag is-small is-info">
-                                                <span class="icon is-small"><i class="mdi mdi-information"></i></span>
-                                            </span>
-                                        </div>
-                                        <div class="level-item"><small>دو ماه پیش</small></div>
-                                    </div>
-                                </nav>
-                            </div>
-                        </article>
+<!-- </div> -->
 
-                    </div>
-                </div>
-            </aside>
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="level">
-                        <div class="level-left">
-                            <div class="level-item">
-                                © 2021, داشبورد وبلاگ آزمایشی من
-                            </div>
-                        </div>
-                        <div class="level-right">
-                            <div class="level-item">
-                                <div class="logo">
-                                    <a href="https://hadikhah.ir"><img src="img/trianglify-bw-50@2x.png"
-                                            alt="hadikhah"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-</div>
-
-<div id="ui-overlay" class="ui-overlay is-hidden"></div>
+<!-- <div id="ui-overlay" class="ui-overlay is-hidden"></div>
 
 <div id="sample-modal" class="modal">
     <div class="modal-background jb-modal-close"></div>
@@ -597,7 +539,7 @@
         </footer>
     </div>
     <button class="modal-close is-large jb-modal-close" aria-label="close"></button>
-</div>
+</div> -->
 
 <!-- Scripts below are for demo only -->
 <script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
@@ -607,5 +549,5 @@
 
 <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
-    
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
