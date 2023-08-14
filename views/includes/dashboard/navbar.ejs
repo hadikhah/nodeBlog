@@ -24,9 +24,13 @@
 			<div class="navbar-item has-dropdown has-dropdown-with-icons has-divider has-user-avatar is-hoverable">
 				<a class="navbar-link is-arrowless">
 					<div class="is-user-avatar">
-						<img src="https://avatars.dicebear.com/v2/initials/احسان-علیخانی.svg" alt="احسان-علیخانی">
+						<img src="https://api.dicebear.com/6.x/initials/svg?seed=<%= auth.user.first_name.charAt(0) %><%= auth.user.last_name.charAt(0) %>"
+							alt="<%= auth.user.first_name %> <%= auth.user.last_name %>">
 					</div>
-					<div class="is-user-name"><span>احسان علیخانی</span></div>
+					<div class="is-user-name"><span>
+							<%= auth.user.first_name %>
+								<%= auth.user.last_name %>
+						</span></div>
 					<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
 				</a>
 				<div class="navbar-dropdown">

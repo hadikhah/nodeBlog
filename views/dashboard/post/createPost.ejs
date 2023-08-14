@@ -1,0 +1,96 @@
+<section class="section is-title-bar">
+	<div class="level">
+		<div class="level-left">
+			<div class="level-item">
+				<ul>
+					<li>Dashboard</li>
+					<li>Posts</li>
+					<li>New Post</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section hero is-fullheight ">
+	<div class="card">
+		<header class="card-header">
+			<p class="card-header-title">
+				<span class="icon"><i class="mdi mdi-ballot"></i></span>
+				create new post
+			</p>
+		</header>
+		<div class="card-content">
+			<form method="post" action="/dashboard/post/create">
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Title</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<p class="control is-expanded has-icons-left">
+								<input class="input" type="text" placeholder="Name">
+								<span class="icon is-small is-left"><i class="mdi mdi-account"></i></span>
+							</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Status</label>
+					</div>
+					<div class="field-body">
+						<div class="field is-narrow">
+							<div class="control">
+								<div class="select is-fullwidth">
+									<select>
+										<option>Business development</option>
+										<option>Marketing</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Post</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<div class="control">
+								<textarea class="textarea" placeholder="Explain how we can help you"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="field is-horizontal">
+					<div class="field-label">
+						<!-- Left empty for spacing -->
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<div class="field is-grouped">
+								<div class="control">
+									<button type="submit" class="button is-primary">
+										<span>Submit</span>
+									</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
