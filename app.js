@@ -8,8 +8,13 @@ const chalk = require('chalk');
 
 // -------- loading env files --------
 dotenv.config({ path: './.env' })
-//
+
+// -------- loading env files --------
 const webRoutes = require('./router/web.js');
+const dashboardRoutes = require('./router/dashboard.js');
+
+const errorRoutes = require('./router/errors.js');
+// -------- loading configurations --------
 const config = require('./config');
 
 const app = express()
@@ -22,6 +27,8 @@ config(app)
 //
 // -------- web Routes --------
 app.use(webRoutes)
+app.use(dashboardRoutes)
+app.use(errorRoutes)
 // 
 
 const port = process.env.PORT || 1000
