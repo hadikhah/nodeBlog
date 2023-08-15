@@ -1,3 +1,8 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.22.1/ckeditor.js"
+	integrity="sha512-F8fV4+wpHYl9zul08Soff9H9fCx6OMIFfgbQcy+2v2gV7PdbT0OgM1LFwujQmwlLGWWKNbOFZ13uWP+Cbe0Ngw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <section class="section is-title-bar">
 	<div class="level">
 		<div class="level-left">
@@ -69,9 +74,9 @@
 						<div class="field">
 							<div id="toolbar-container"></div>
 
-							<div class="control" id="body">
-								<!-- <textarea class="textarea" name="body"
-									placeholder="Explain how we can help you"></textarea> -->
+							<div class="control">
+								<textarea class="textarea" name="body"
+									placeholder="Explain how we can help you"></textarea>
 							</div>
 						</div>
 					</div>
@@ -106,17 +111,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
 
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/decoupled-document/ckeditor.js"></script>
+
 
 <script>
-	DecoupledEditor
-		.create(document.querySelector('#body'))
-		.then(editor => {
-			const toolbarContainer = document.querySelector('#toolbar-container');
-
-			toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-		})
-		.catch(error => {
-			console.error(error);
-		});
+	CKEDITOR.replace('body')
 </script>
