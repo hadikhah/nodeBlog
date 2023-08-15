@@ -21,8 +21,14 @@ router.get('/dashboard/post/create', auth, PostController.createPostPage)
 /** 
  * @route
  * @post
- * @desc dashboard create post page 
+ * @desc dashboard Stores a post 
  */
 router.post('/dashboard/post/create', auth, NewPostValidation, PostController.storePost)
+/** 
+ * @route
+ * @get
+ * @desc dashboard show all user's posts
+ */
+router.get('/dashboard/post/all', auth, PostController.showAllPosts)
 
 module.exports = router
