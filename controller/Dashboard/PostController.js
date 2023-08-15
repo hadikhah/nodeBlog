@@ -23,7 +23,7 @@ exports.createPostPage = async (req, res) => {
 }
 
 /**
- * renders the create post page of user dashboard
+ * stores the posts in db
  *
  * @param {*} req
  * @param {*} res
@@ -43,5 +43,22 @@ exports.storePost = async (req, res) => {
 		console.log(error)
 	}
 
+}
 
+/**
+ * renders the list of all posts
+ *
+ * @param {*} req
+ * @param {*} res
+ * @return {*} 
+ */
+exports.showAllPosts = async (req, res) => {
+	try {
+		const posts = await Post.find().populate("status");
+
+		return res.render("dashboard/post/allPosts", { pageTitle: "all posts", layout: "layouts/dashboard", posts })
+
+	} catch (error) {
+		console.log(error)
+	}
 }
