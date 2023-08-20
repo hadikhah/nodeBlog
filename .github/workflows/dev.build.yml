@@ -25,6 +25,7 @@ jobs:
                       git pull |& tee -a /root/log.log
                       cp .env.dev .env |& tee -a /root/log.log
                       sh ./run.sh
+                      cd ..
                       docker compose down |& tee -a /root/log.log
                       docker compose up --build -d |& tee -a /root/log.log
                       docker ps |& tee -a /root/log.log
