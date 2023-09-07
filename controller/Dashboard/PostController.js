@@ -1,5 +1,6 @@
 const Post = require('../../models/Post');
 const Status = require('../../models/Status');
+const { setFormSuccessMessage } = require('../../validation/Validator');
 /**
  * renders the create post page of user dashboard
  *
@@ -18,8 +19,6 @@ exports.createPostPage = async (req, res) => {
 		console.log(error)
 	}
 
-
-
 }
 
 /**
@@ -36,6 +35,8 @@ exports.storePost = async (req, res) => {
 		const post = { ...req.body, user: req.user.id }
 
 		const newPost = await Post.create(post);
+
+		setFormSuccessMessage(req,"Post successfully created")
 
 		return res.redirect("back")
 
