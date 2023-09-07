@@ -38,7 +38,8 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control is-expanded has-icons-left">
-								<input class="input" type="text" name="title" placeholder="Name">
+								<input class="input" type="text" name="title" value="<%= flash.form_body?.title||"" %>"
+									placeholder="Name">
 								<span class="icon is-small is-left"><i class="mdi mdi-account"></i></span>
 							</p>
 						</div>
@@ -56,8 +57,9 @@
 									<select name="status">
 										<% statusList.forEach(status=> { %>
 
-											<option value="<%= status.id %>">
-												<%= status.key %>
+											<option <%=flash.form_body?.status==status.id? "selected='true'" :"" %>
+												value="<%= status.id %>">
+													<%= status.key %>
 											</option>
 											<% }); %>
 									</select>
@@ -75,8 +77,9 @@
 							<div id="toolbar-container"></div>
 
 							<div class="control">
-								<textarea class="textarea" name="body"
-									placeholder="Explain how we can help you"></textarea>
+								<textarea class="textarea" name="body" placeholder="">
+									<%= flash.form_body?.body||'' %>
+								</textarea>
 							</div>
 						</div>
 					</div>
