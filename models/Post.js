@@ -13,6 +13,11 @@ const postSchema = Schema({
 		require: true,
 		trim: true,
 	},
+	thumbnail: {
+		type: String,
+		require: true,
+		trim: true,
+	},
 	status: {
 		type: Schema.Types.ObjectId,
 		ref: "Status"
