@@ -51,6 +51,15 @@ function isValidFileType(mimetype) {
  */
 exports.fileFilter = (req, file, cb) => {
 
+    const uploadPath = makePath(["public", "uploads"]);
+    // make uploads path if not exists
+
+    if (!fs.existsSync(uploadPath)) {
+        fs.mkdir(uploadPath, { recursive: true }, (err) => {
+            console.log(err);
+        });
+    }
+
     if (isValidFileType(file.mimetype)) {
         cb(null, true);
     } else {

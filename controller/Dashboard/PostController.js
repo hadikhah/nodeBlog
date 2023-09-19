@@ -2,7 +2,10 @@ const multer = require('multer');
 const Post = require('../../models/Post');
 const Status = require('../../models/Status');
 const { setFormSuccessMessage } = require('../../validation/Validator');
-const { storage, fileFilter } = require('../../utils/multer');
+const { fileFilter } = require('../../utils/multer');
+const uuid = require("uuid").v4;
+const sharp = require('sharp');
+
 
 /**
  * renders the create post page of user dashboard
@@ -59,23 +62,24 @@ exports.CKEDITORuploadImage = (req, res) => {
 
 	const destinationFolder = "uploads/"
 	// multer function for upload 
+	// won't need dest and storage cause sharp does the saving
 	const upload = multer({
 		limits: { fileSize: 4000000 },
-		dest: destinationFolder,
-		storage: storage,
+		// dest: destinationFolder,
+		// storage: storage, 
 		fileFilter: fileFilter,
 	}).single("upload" /** make sure that this has the same name with file upload input name */);
 
-	upload(req, res, (err) => {
+	upload(req, res, async (err) => {
 
 		if (err)
 			return res.send(err);
 		else {
 			if (req.file) {
-				return res.status(200).send({
-					"url": `/${destinationFolder}${req.file.filename}`
-				});
 
+				const storedImage = await compressAndSaveImage(req, res, "uploads/")
+
+				return res.status(200).send({ "url": `/${storedImage}` });
 			}
 			else
 				return res.send({
@@ -85,6 +89,30 @@ exports.CKEDITORuploadImage = (req, res) => {
 				});
 		}
 	});
+}
+
+/**
+ * compresses the image using sharp
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {string} [destinationFolder='uploads/']
+ * @return {*} 
+ */
+const compressAndSaveImage = async (req, res, destinationFolder = 'uploads/') => {
+
+	const mimeType = req.file.mimetype.split("/").pop();
+
+	const newImageName = `${destinationFolder}${uuid()}_${Date.now()}.${mimeType}`;
+
+	await sharp(req.file.buffer).jpeg({
+		quality: 60
+	})
+		.toFile(`./public/${newImageName}`)
+		.catch(err => console.log(err))
+
+
+	return newImageName
 }
 
 /**
