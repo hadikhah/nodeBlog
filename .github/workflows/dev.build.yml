@@ -24,7 +24,7 @@ jobs:
                       echo $(pwd) > /root/log.log 
                       git pull |& tee -a /root/log.log
                       cp .env.dev .env |& tee -a /root/log.log
-                      rm -rf ./public/uploads
+                      rm -rf ./public/uploads |& tee -a /root/log.log
                       sh ./run.sh
                       cd ..
                       docker compose down |& tee -a /root/log.log
