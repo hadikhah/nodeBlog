@@ -30,5 +30,11 @@ router.post('/dashboard/post/create', auth, NewPostValidation, PostController.st
  * @desc dashboard show all user's posts
  */
 router.get('/dashboard/post/all', auth, PostController.showAllPosts)
+/** 
+ * @route
+ * @post
+ * @desc dashboard route that uploads images from ckeditor
+ */
+router.post('/dashboard/post/ckeditor-upload-image', auth, PostController.CKEDITORuploadImage)
 
 module.exports = router

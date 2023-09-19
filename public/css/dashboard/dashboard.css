@@ -12,3 +12,10 @@ html, body {
 	max-width: 80%;
 	margin: 20px auto;
 }
+
+@media screen and (min-width: 769px),
+print {
+	.field-body {
+		flex-grow: 10 !important;
+	}
+}
