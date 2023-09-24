@@ -90,6 +90,22 @@
 				</div>
 				<div class="field is-horizontal">
 					<div class="field-label is-normal">
+						<label class="label">brief</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<div id="toolbar-container"></div>
+
+							<div class="control">
+								<textarea class="textarea" name="brief" placeholder="">
+									<%= flash.form_body?.brief||'' %>
+								</textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
 						<label class="label">Post body</label>
 					</div>
 					<div class="field-body">

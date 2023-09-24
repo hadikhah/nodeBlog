@@ -32,6 +32,7 @@ const NewPostFormValidationSchema = (statusListIds) => yup.object().shape({
 
     title: yup.string().required().min(4).max(300),
     status: yup.mixed().oneOf(statusListIds, "status is not valid"),
+    brief: yup.string().required().min(4).max(700),
     body: yup.string().required(),
     
 });

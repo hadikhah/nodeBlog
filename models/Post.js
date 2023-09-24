@@ -7,6 +7,11 @@ const postSchema = Schema({
 		trim: true,
 		minLength: 5,
 		maxLength: 300
+	}, 
+	brief: {
+		type: String,
+		require: true,
+		trim: true,
 	},
 	body: {
 		type: String,
