@@ -134,10 +134,25 @@ const compressAndSaveJpeg = async (buffer, destinationFolder = 'uploads/') => {
  * @return {*} 
  */
 exports.showAllPosts = async (req, res) => {
-	try {
-		const posts = await Post.find().populate("status");
 
-		return res.render("dashboard/post/allPosts", { pageTitle: "all posts", layout: "layouts/dashboard", posts })
+	const perPage = req.query.perPage ?? 10;
+
+	const page = req.query.page ?? 1;
+
+	try {
+		const posts = await Post.find()
+			.limit(perPage)
+			.skip(perPage * page)
+			.sort({
+				createdAt: 'desc'
+			})
+			.populate("status");
+
+		const allPostsCount = await Post.count()
+
+		console.log(posts)
+
+		return res.render("dashboard/post/allPosts", { pageTitle: "all posts", layout: "layouts/dashboard", posts, page, perPage, allPostsCount })
 
 	} catch (error) {
 		console.log(error)
