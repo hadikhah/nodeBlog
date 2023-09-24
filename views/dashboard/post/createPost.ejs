@@ -43,16 +43,25 @@
 
 					</div>
 				</div>
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
+
+				<div class="field is-horizontal is-align-items-center">
+					<div class="field-label is-align-items-center is-normal">
 						<label class="label">Thumbnail</label>
 					</div>
-					<div class="field-body">
-						<div class="field">
+					<div class="field-body is-align-items-center">
+						<div class="field align-center">
 							<p class="control is-expanded has-icons-left">
-								<input class="input" type="file" name="thumbnail">
+								<input class="input" type="file" name="thumbnail" id="thumbnail-upload-input">
 								<span class="icon is-small is-left"><i class="mdi mdi-account"></i></span>
 							</p>
+						</div>
+						<div class="field-label is-normal is-align-items-center">
+							<label class="label">thumbnail preview</label>
+						</div>
+						<div class="field is-align-items-center">
+							<figure class="image is-128x128">
+								<img src="/img/preview.png" alt="thumbnail-preview" id="thumbnail-preview">
+							</figure>
 						</div>
 
 					</div>
@@ -81,7 +90,7 @@
 				</div>
 				<div class="field is-horizontal">
 					<div class="field-label is-normal">
-						<label class="label">Post</label>
+						<label class="label">Post body</label>
 					</div>
 					<div class="field-body">
 						<div class="field">
@@ -121,6 +130,18 @@
 
 
 <script>
+
+	const thumbnailUploadInput = document.querySelector('#thumbnail-upload-input')
+
+	const preview = document.querySelector('#thumbnail-preview')
+
+	thumbnailUploadInput.addEventListener("change", (e) => {
+		const src = URL.createObjectURL(e.target.files[0]);;
+		preview.setAttribute("src", src)
+	})
+
+	thumbnailUploadInput.onchange
+
 	const editor = ClassicEditor
 		.create(document.querySelector('#editor'), {
 			simpleUpload: {
