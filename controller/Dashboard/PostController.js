@@ -1,11 +1,13 @@
 const multer = require('multer');
+const fs = require('fs');
+
 const Post = require('../../models/Post');
 const Status = require('../../models/Status');
-const { setFormSuccessMessage } = require('../../validation/Validator');
+const { setFormSuccessMessage, setPreviousFormErrors } = require('../../validation/Validator');
 const { fileFilter } = require('../../utils/multer');
 const uuid = require("uuid").v4;
 const sharp = require('sharp');
-
+const makePath = require('../../utils/path');
 
 /**
  * renders the create post page of user dashboard
@@ -37,8 +39,11 @@ exports.createPostPage = async (req, res) => {
 exports.storePost = async (req, res) => {
 
 	try {
+		const thumbnail = await compressAndSaveJpeg(req.files.thumbnail.data)
 
-		const post = { ...req.body, user: req.user.id }
+		// if (!thumbnail) return res.redirect("back")
+
+		const post = { ...req.body, user: req.user.id, thumbnail }
 
 		const newPost = await Post.create(post);
 
@@ -51,6 +56,7 @@ exports.storePost = async (req, res) => {
 	}
 
 }
+
 
 /**
  * ckeditor upload image method 
@@ -77,7 +83,7 @@ exports.CKEDITORuploadImage = (req, res) => {
 		else {
 			if (req.file) {
 
-				const storedImage = await compressAndSaveImage(req, res, "uploads/")
+				const storedImage = await compressAndSaveJpeg(req.file.buffer, destinationFolder)
 
 				return res.status(200).send({ "url": `/${storedImage}` });
 			}
@@ -91,28 +97,33 @@ exports.CKEDITORuploadImage = (req, res) => {
 	});
 }
 
+
 /**
- * compresses the image using sharp
+ * compresses the image as jpeg format using sharp
  *
- * @param {*} req
- * @param {*} res
+ * @param {*} buffer
  * @param {string} [destinationFolder='uploads/']
  * @return {*} 
  */
-const compressAndSaveImage = async (req, res, destinationFolder = 'uploads/') => {
+const compressAndSaveJpeg = async (buffer, destinationFolder = 'uploads/') => {
 
-	const mimeType = req.file.mimetype.split("/").pop();
+	const uploadPath = makePath(["public", ...destinationFolder.split("/")]);
+	// make destination Folder path if not exists
 
-	const newImageName = `${destinationFolder}${uuid()}_${Date.now()}.${mimeType}`;
+	if (!fs.existsSync(uploadPath)) {
+		fs.mkdirSync(uploadPath, { recursive: true });
+	}
 
-	await sharp(req.file.buffer).jpeg({
+	const newImageName = `${destinationFolder}${uuid()}_${Date.now()}.jpeg`;
+
+	await sharp(buffer).jpeg({
 		quality: 60
 	})
 		.toFile(`./public/${newImageName}`)
 		.catch(err => console.log(err))
 
-
 	return newImageName
+
 }
 
 /**
