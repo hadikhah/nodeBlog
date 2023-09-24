@@ -30,7 +30,7 @@
 							<div class="media-left is-flex is-flex-direction-row is-justify-content-space-between">
 
 								<div class="is-left">
-									<%= key + 1 %>
+									<%= (perPage*(currentPage-1)) + key + 1 %>
 
 								</div>
 								<div class="is-actions-cell">
@@ -54,7 +54,8 @@
 							<article class="media">
 								<div class="media-left">
 									<figure class="image is-64x64">
-										<img class="image is-64x64" src="<%= post.thumbnail??" /img/preview.png" %>" alt="Image">
+										<img class="image is-64x64" src="<%= post.thumbnail??" /img/preview.png" %>"
+										alt="Image">
 									</figure>
 
 								</div>
@@ -84,48 +85,52 @@
 
 
 							<nav class="pagination is-rounded" role="navigation" aria-label="pagination">
-								<a class="pagination-previous">Previous</a>
-								<a class="pagination-next">Next page</a>
+
 								<ul class="pagination-list">
 
 									<% if(currentPage>1){ %>
-										<li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-										<% if(currentPage>3){ %>
-											<li><span class="pagination-ellipsis">&hellip;</span></li>
-											<% } %>
+										<li><a href="?<%= (new URLSearchParams({...query,page:1})).toString() %>"
+												class="pagination-link" aria-label="Goto page 1">1</a></li>
+										<% } %>
+											<% if(currentPage>3){ %>
+												<li><span class="pagination-ellipsis">&hellip;</span></li>
 
-												<li><a class="pagination-link" aria-label="Goto page 45">
-														<%= currentPage-1 %>
-													</a></li>
 												<% } %>
+													<% if(currentPage>2){ %>
 
-													<li><a class="pagination-link is-current" aria-label="Page 46"
-															aria-current="page">
-															<%= currentPage %>
-														</a></li>
-
-
-
-
-													<% if(totalPages>currentPage){ %>
-														<li><a href="?page=<%= currentPage+1 %>" class="pagination-link"
-																aria-label="Goto page 47">
-																<%= currentPage+1 %>
+														<li><a href="?<%= (new URLSearchParams({...query,page:currentPage-1})).toString() %>"
+																class="pagination-link" aria-label="Goto page 45">
+																<%= currentPage-1 %>
 															</a></li>
 														<% } %>
 
+															<li><a class="pagination-link is-current"
+																	aria-label="Page 46" aria-current="page">
+																	<%= currentPage %>
+																</a></li>
 
-															<% if(totalPages-currentPage>=2){ %>
-																<li><span class="pagination-ellipsis">&hellip;</span>
-																</li>
-
-
-																<li><a class="pagination-link"
-																		aria-label="Goto page 86">
-																		<%= totalPages %>
+															<% if(totalPages>currentPage){ %>
+																<li><a href="?<%= (new URLSearchParams({...query,page:currentPage+1})).toString() %>"
+																		class="pagination-link"
+																		aria-label="Goto page 47">
+																		<%= currentPage+1 %>
 																	</a></li>
-
 																<% } %>
+
+
+																	<% if(totalPages-currentPage>=2){ %>
+																		<li><span
+																				class="pagination-ellipsis">&hellip;</span>
+																		</li>
+
+
+																		<li><a href="?<%= (new URLSearchParams({...query,page:totalPages})).toString() %>"
+																				class="pagination-link"
+																				aria-label="Goto page 86">
+																				<%= totalPages %>
+																			</a></li>
+
+																		<% } %>
 
 								</ul>
 							</nav>
