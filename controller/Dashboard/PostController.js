@@ -122,7 +122,7 @@ const compressAndSaveJpeg = async (buffer, destinationFolder = 'uploads/') => {
 		.toFile(`./public/${newImageName}`)
 		.catch(err => console.log(err))
 
-	return newImageName
+	return `/${newImageName}`
 
 }
 
