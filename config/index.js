@@ -15,6 +15,7 @@ const connectDB = require('./database');
 const makePath = require("../utils/path");
 const winston = require('./winston');
 const { run } = require('../database/mainSeeder');
+const fileUpload = require('express-fileupload');
 
 /**
  * configs
@@ -39,7 +40,9 @@ function config(app) {
     /**/
     app.use(express.urlencoded({ extended: false }))
     //
-
+    app.use(fileUpload({
+        limits: { fileSize: 50 * 1024 * 1024 /** about 50 MB */}
+    }))
     // ---------- view engine configs ----------
     app.set("view engine", 'ejs')
     app.set("views", "views")
