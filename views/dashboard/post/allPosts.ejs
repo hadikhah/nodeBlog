@@ -20,7 +20,67 @@
 			</p>
 		</header>
 		<div class="card-content">
-			<div class="b-table has-pagination">
+			<!-- posts list start here -->
+			<% posts.forEach((post,key)=> { %>
+
+				<div class="box">
+					<div class="media-left is-flex is-flex-direction-row is-justify-content-space-between">
+
+						<div class="is-left">
+							<%= key + 1 %>
+
+						</div>
+						<div class="is-actions-cell">
+							<div class="buttons is-right">
+								<button class="button is-small is-primary" type="button">
+									<span class="icon"><i class="mdi mdi-eye"></i></span>
+								</button>
+								<button class="button is-small is-warning" type="button">
+									<span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+								</button>
+								<button class="button is-small is-danger jb-modal" data-target="sample-modal"
+									type="button">
+									<span class="icon"><i class="mdi mdi-trash-can"></i></span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+
+
+					<article class="media">
+						<div class="media-left">
+							<figure class="image is-64x64">
+								<img src="<%= post.thumbnail??" /img/preview.png" %>" alt="Image">
+							</figure>
+
+						</div>
+						<div class="media-content">
+							<div class="content">
+								<p>
+									<strong>
+										<%= post.title%>
+									</strong>
+									<small>
+										<%= (new Date(post.createdAt)).toDateString() %>
+									</small>
+									<!-- <br> -->
+									<span class="tag is-light">
+										<%= post.status.key %>
+									</span>
+									<br>
+
+									<%= post.brief %>
+								</p>
+
+							</div>
+						</div>
+					</article>
+				</div>
+				<% }); %>
+
+
+					<!-- <div class="b-table has-pagination">
 				<div class="table-wrapper has-mobile-cards">
 					<table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
 						<thead>
@@ -99,7 +159,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
