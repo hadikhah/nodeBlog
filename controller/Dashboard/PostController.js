@@ -142,15 +142,13 @@ exports.showAllPosts = async (req, res) => {
 	try {
 		const posts = await Post.find()
 			.limit(perPage)
-			.skip(perPage * page)
+			.skip(perPage * (page - 1))
 			.sort({
 				createdAt: 'desc'
 			})
 			.populate("status");
 
 		const allPostsCount = await Post.count()
-
-		console.log(posts)
 
 		return res.render("dashboard/post/allPosts", { pageTitle: "all posts", layout: "layouts/dashboard", posts, page, perPage, allPostsCount })
 
