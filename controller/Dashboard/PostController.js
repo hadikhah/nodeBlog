@@ -135,9 +135,9 @@ const compressAndSaveJpeg = async (buffer, destinationFolder = 'uploads/') => {
  */
 exports.showAllPosts = async (req, res) => {
 
-	const perPage = req.query.perPage ?? 10;
+	const perPage = parseInt(req.query.perPage ?? 10);
 
-	const page = req.query.page ?? 1;
+	const page = parseInt(req.query.page ?? 1);
 
 	try {
 		const posts = await Post.find()
@@ -150,7 +150,11 @@ exports.showAllPosts = async (req, res) => {
 
 		const allPostsCount = await Post.count()
 
-		return res.render("dashboard/post/allPosts", { pageTitle: "all posts", layout: "layouts/dashboard", posts, page, perPage, allPostsCount })
+		const totalPages = allPostsCount % perPage ? (Math.floor((allPostsCount / perPage) + 1)) : (Math.floor(allPostsCount / perPage))
+
+		const { page: _, ...query } = req.query
+
+		return res.render("dashboard/post/allPosts", { pageTitle: "all posts", layout: "layouts/dashboard", posts, currentPage: page, perPage, allPostsCount, totalPages, query })
 
 	} catch (error) {
 		console.log(error)
