@@ -28,6 +28,7 @@ jobs:
                       sh ./run.sh
                       cd ..
                       docker compose down |& tee -a /root/log.log
+                      docker volume prune
                       docker compose up --build -d |& tee -a /root/log.log
                       docker ps |& tee -a /root/log.log
                       echo $(date) >> /root/log.log
