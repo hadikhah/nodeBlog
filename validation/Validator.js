@@ -6,7 +6,7 @@
 * @param {*} next
 * @return {*} 
 */
-const Validator = (schema, req, res, next) => {
+const Validator = (schema, req, res, next, custom_errors = []) => {
 
     // initiates the validation process 
     // abort early false is for the validation to show all of the errors
@@ -16,11 +16,19 @@ const Validator = (schema, req, res, next) => {
         .then((result) => {
             // setFormSuccessMessage(req, "form validation was successful")
 
+            console.log(custom_errors.length)
+            if (custom_errors.length > 0) {
+                setPreviousFormErrors(req, custom_errors)
+                setPreviousFormData(req, req.body)
+
+                return res.redirect("back")
+            }
+
             next();
         })
         .catch(err => {
 
-            setPreviousFormErrors(req, err.errors)
+            setPreviousFormErrors(req, custom_errors.concat(err?.errors))
             setPreviousFormData(req, req.body)
 
             return res.redirect("back")
