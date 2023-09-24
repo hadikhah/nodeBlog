@@ -38,7 +38,6 @@ const validFileExtensions = { image: ['jpg', 'png', 'jpeg'] };
  * @return {*} 
  */
 function isValidFileType(mimetype) {
-    console.log("file mime type", mimetype.split("/").pop())
     return validFileExtensions.image.indexOf(mimetype.split("/").pop()) > -1;
 }
 
