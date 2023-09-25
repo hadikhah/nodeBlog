@@ -1,0 +1,193 @@
+<script src="/ckeditor5/build/ckeditor.js"></script>
+<link rel="stylesheet" href="/css/">
+<section class="section is-title-bar">
+	<div class="level">
+		<div class="level-left">
+			<div class="level-item">
+				<ul>
+					<li>Dashboard</li>
+					<li>Posts</li>
+					<li>edit Post</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section hero is-fullheight ">
+	<div class="card">
+		<header class="card-header">
+			<p class="card-header-title">
+				<span class="icon"><i class="mdi mdi-ballot"></i></span>
+				edit post
+			</p>
+		</header>
+		<div class="card-content">
+			<form method="post" action="/dashboard/post/edit/<%= post._id %>" enctype="multipart/form-data">
+				<div class="container">
+					<%- include("../../includes/messages.ejs") %>
+				</div>
+
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Title</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<p class="control is-expanded has-icons-left">
+								<input class="input" type="text" name="title"
+									value="<%= flash.form_body?.title||post.title||"" %>" placeholder="Title">
+								<span class="icon is-small is-left"><i class="mdi mdi-account"></i></span>
+							</p>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="field is-horizontal is-align-items-center">
+					<div class="field-label is-align-items-center is-normal">
+						<label class="label">Thumbnail</label>
+					</div>
+					<div class="field-body is-align-items-center">
+						<div class="field align-center">
+							<p class="control is-expanded has-icons-left">
+								<input class="input" type="file" name="thumbnail" id="thumbnail-upload-input">
+								<span class="icon is-small is-left"><i class="mdi mdi-account"></i></span>
+							</p>
+						</div>
+						<div class="field-label is-normal is-align-items-center">
+							<label class="label">thumbnail preview</label>
+						</div>
+						<div class="field is-align-items-center">
+							<figure class="image is-128x128">
+								<img src="<%= post.thumbnail??" /img/preview.png" %>" alt="thumbnail-preview"
+								id="thumbnail-preview">
+							</figure>
+						</div>
+
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Status
+					</div>
+					<div class="field-body">
+						<div class="field is-narrow">
+							<div class="control">
+								<div class="select is-fullwidth">
+									<select name="status">
+										<% statusList.forEach(status=> { %>
+
+											<option <% if(flash.form_body?.status){%>
+												<% if(flash.form_body?.status==status.id){ %>
+													selected="true"
+													<% } %>
+														<% } else if(post.status==status.id){ %>
+															selected="true"
+															<% } %>
+																value="<%= status.id %>">
+																	<%= status.key %>
+											</option>
+											<% }); %>
+
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">brief</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<div id="toolbar-container"></div>
+
+							<div class="control">
+								<textarea class="textarea" name="brief"
+									placeholder=""><%= flash.form_body?.brief||post.brief||'' %></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Post body</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<div id="toolbar-container"></div>
+
+							<div class="control">
+								<textarea id="editor" class="textarea" name="body" placeholder="">
+									<%= flash.form_body?.body|| post.body ||'' %>
+								</textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="field is-horizontal">
+					<div class="field-label">
+						<!-- Left empty for spacing -->
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<div class="field is-grouped">
+								<div class="control">
+									<button type="submit" class="button is-primary">
+										<span>Submit</span>
+									</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+
+
+<script>
+
+	const thumbnailUploadInput = document.querySelector('#thumbnail-upload-input')
+
+	const preview = document.querySelector('#thumbnail-preview')
+
+	thumbnailUploadInput.addEventListener("change", (e) => {
+		const src = URL.createObjectURL(e.target.files[0]);;
+		preview.setAttribute("src", src)
+	})
+
+	thumbnailUploadInput.onchange
+
+	const editor = ClassicEditor
+		.create(document.querySelector('#editor'), {
+			simpleUpload: {
+				// The URL that the images are uploaded to.
+				uploadUrl: '/dashboard/post/ckeditor-upload-image',
+
+				// // Enable the XMLHttpRequest.withCredentials property.
+				// withCredentials: true,
+
+				// // Headers sent along with the XMLHttpRequest to the upload server.
+				// headers: {
+				// 	'X-CSRF-TOKEN': 'CSRF-Token',
+				// 	Authorization: 'Bearer <JSON Web Token>'
+				// }
+			}
+
+		})
+		.catch(error => {
+			console.error(error);
+		});
+
+
+
+
+
+</script>
