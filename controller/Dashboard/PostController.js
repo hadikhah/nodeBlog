@@ -8,6 +8,7 @@ const { fileFilter } = require('../../utils/multer');
 const uuid = require("uuid").v4;
 const sharp = require('sharp');
 const makePath = require('../../utils/path');
+const { validateImage } = require('../../validation/ImageValidation');
 
 /**
  * renders the create post page of user dashboard
@@ -102,7 +103,7 @@ exports.storePost = async (req, res) => {
 
 		const post = { ...req.body, user: req.user.id, thumbnail }
 
-		const newPost = await Post.create(post);
+		await Post.create(post);
 
 		setFormSuccessMessage(req, "Post successfully created")
 
@@ -121,37 +122,31 @@ exports.storePost = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-exports.CKEDITORuploadImage = (req, res) => {
+exports.CKEDITORuploadImage = async (req, res) => {
+	try {
+		const destinationFolder = "uploads/postImages"
 
-	const destinationFolder = "uploads/"
-	// multer function for upload 
-	// won't need dest and storage cause sharp does the saving
-	const upload = multer({
-		limits: { fileSize: 4000000 },
-		// dest: destinationFolder,
-		// storage: storage, 
-		fileFilter: fileFilter,
-	}).single("upload" /** make sure that this has the same name with file upload input name */);
+		const validationErrors = validateImage(req.files.upload, ["required", "lt:0.2"])
 
-	upload(req, res, async (err) => {
+		if (validationErrors.length)
+			return res.status(422).send({ "error": { "message": validationErrors.join("\n") } })
 
-		if (err)
-			return res.send(err);
-		else {
-			if (req.file) {
+		const storedImage = await compressAndSaveJpeg(req.files.upload.data, destinationFolder)
 
-				const storedImage = await compressAndSaveJpeg(req.file.buffer, destinationFolder)
+		return res.status(200).send({ "url": storedImage });
 
-				return res.status(200).send({ "url": `/${storedImage}` });
+	}
+	catch (error) {
+
+		console.log(error)
+
+		return res.status(500).send({
+			"error": {
+				"message": "an error happened"
 			}
-			else
-				return res.send({
-					"error": {
-						"message": "an error happened"
-					}
-				});
-		}
-	});
+		});
+	}
+
 }
 
 
