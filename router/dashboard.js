@@ -4,7 +4,7 @@ const DashboardController = require('../controller/Dashboard/DashboardController
 const PostController = require('../controller/Dashboard/PostController');
 
 const auth = require('../middleware/auth');
-const NewPostValidation = require('../validation/PostValidation');
+const { NewPostValidation, UpdatePostValidation } = require('../validation/PostValidation');
 
 /**
  * @route
@@ -36,5 +36,18 @@ router.get('/dashboard/post/all', auth, PostController.showAllPosts)
  * @desc dashboard route that uploads images from ckeditor
  */
 router.post('/dashboard/post/ckeditor-upload-image', auth, PostController.CKEDITORuploadImage)
+/** 
+ * @route
+ * @get
+ * @desc dashboard post edit page 
+ */
+router.get('/dashboard/post/edit/:id', auth, PostController.editPostPage)
+/** 
+ * @route
+ * @post
+ * @desc dashboard Stores a post 
+ */
+router.post('/dashboard/post/edit/:id', auth, UpdatePostValidation, PostController.updatePost)
+
 
 module.exports = router
