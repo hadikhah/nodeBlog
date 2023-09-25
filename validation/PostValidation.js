@@ -34,9 +34,15 @@ const NewPostFormValidationSchema = (statusListIds) => yup.object().shape({
     status: yup.mixed().oneOf(statusListIds, "status is not valid"),
     brief: yup.string().required().min(4).max(700),
     body: yup.string().required(),
-    
+
 });
 
+/**
+ * checks if the uploaded thumbnail is valid for new post
+ *
+ * @param {*} thumbnailFile
+ * @return {*} 
+ */
 const thumbnailValidation = (thumbnailFile) => {
 
     const errors = [];
@@ -59,13 +65,13 @@ const thumbnailValidation = (thumbnailFile) => {
 }
 
 /**
- * register validation process
+ * new post validation process
  *
  * @param {*} req
  * @param {*} res
  * @param {*} next
  */
-const NewPostValidation = async (req, res, next) => {
+exports.NewPostValidation = async (req, res, next) => {
 
     const thumbnailErrors = thumbnailValidation(req.files?.thumbnail)
 
@@ -75,5 +81,45 @@ const NewPostValidation = async (req, res, next) => {
 
 }
 
+/**
+ * checks if the uploaded thumbnail is valid for updating a post
+ *
+ * @param {*} thumbnailFile
+ * @return {*} 
+ */
+const updateThumbnailValidation = (thumbnailFile) => {
 
-module.exports = NewPostValidation;
+    const errors = [];
+
+    if (!thumbnailFile) {
+        return errors;
+    }
+
+    if (!isValidFileType(thumbnailFile.name, "image")) {
+        errors.push(`valid image types are ${validFileExtensions.image.join(" ")}`)
+    }
+
+    if (!isValidFileSize(thumbnailFile.size)) {
+        errors.push(`file size should be less than 4 MB`)
+    }
+
+    return errors
+
+}
+
+/**
+ * update post validation
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.UpdatePostValidation = async (req, res, next) => {
+
+    const thumbnailErrors = updateThumbnailValidation(req.files?.thumbnail)
+
+    const StatusList = await Status.find().select("_id")
+
+    Validator(NewPostFormValidationSchema(StatusList.map(item => item._id.toString())), req, res, next, thumbnailErrors);
+
+}
