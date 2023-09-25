@@ -30,6 +30,63 @@ exports.createPostPage = async (req, res) => {
 }
 
 /**
+ * renders the edit post page of user dashboard
+ *
+ * @param {*} req
+ * @param {*} res
+ *  
+ */
+exports.editPostPage = async (req, res) => {
+
+	try {
+		const post = await Post.findOne({ _id: req.params.id })
+
+		const statusList = await Status.find()
+
+		return res.render("dashboard/post/editPost", { pageTitle: "post Edits", layout: "layouts/dashboard", statusList, post })
+
+	} catch (error) {
+		console.log(error)
+		if (error.name == "CastError")
+			return res.redirect("/404")
+	}
+
+}
+
+/**
+ * updates the given post
+ *
+ * @param {*} req
+ * @param {*} res
+ *  
+ */
+exports.updatePost = async (req, res) => {
+
+	try {
+
+		const post = { ...req.body, user: req.user.id }
+
+		if (req.files?.thumbnail) {
+			const thumbnail = await compressAndSaveJpeg(req.files.thumbnail.data)
+			post.thumbnail = thumbnail
+		}
+
+		await Post.findByIdAndUpdate({ _id: req.params.id }, post)
+
+		setFormSuccessMessage(req, "Post successfully updated")
+
+		return res.redirect("back")
+
+	} catch (error) {
+		console.log(error)
+		if (error.name == "CastError")
+			return res.redirect("/404")
+	}
+
+}
+
+
+/**
  * stores the posts in db
  *
  * @param {*} req
