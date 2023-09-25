@@ -192,7 +192,7 @@ exports.showAllPosts = async (req, res) => {
 	const page = parseInt(req.query.page ?? 1);
 
 	try {
-		const posts = await Post.find()
+		const posts = await Post.find({ user: req.user._id })
 			.limit(perPage)
 			.skip(perPage * (page - 1))
 			.sort({
