@@ -34,14 +34,14 @@
                             <%= post.title %>
                         </h2>
                         <p class="mb-4 has-text-grey-dark">
-                            <%= post.brief %>
+                            <%= truncate(post.brief,200) %>
                         </p>
-                        <a class="is-size-6" href="#">Read more</a>
+                        <a class="is-size-6" href="<%= `/post/${post._id}` %>">Read more</a>
                     </div>
                 </div>
                 <% }); %>
 
         </div>
     </div>
-    <div class="pt-4 has-text-centered"><a class="button is-primary" href="#">View More Articles</a></div>
+
 </section>
