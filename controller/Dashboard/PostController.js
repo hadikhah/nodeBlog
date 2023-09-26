@@ -64,15 +64,28 @@ exports.editPostPage = async (req, res) => {
 exports.updatePost = async (req, res) => {
 
 	try {
+		const post = await Post.findById(req.params.id)
 
-		const post = { ...req.body, user: req.user.id }
+		const oldThumbnail = makePath(["public"]) + post.thumbnail
+
+		const newPost = { ...req.body, user: req.user.id }
 
 		if (req.files?.thumbnail) {
-			const thumbnail = await compressAndSaveJpeg(req.files.thumbnail.data)
-			post.thumbnail = thumbnail
+
+			let thumbnail;
+
+			if (req.files.thumbnail.mimetype == "image/gif")
+				thumbnail = await saveImage(req.files.thumbnail, "uploads/thumbnails/")
+			else
+				thumbnail = await compressAndSaveJpeg(req.files.thumbnail.data, "uploads/thumbnails/")
+
+			if (fs.existsSync(oldThumbnail))
+				fs.unlinkSync(oldThumbnail);
+
+			newPost.thumbnail = thumbnail
 		}
 
-		await Post.findByIdAndUpdate({ _id: req.params.id }, post)
+		await post.update(newPost)
 
 		setFormSuccessMessage(req, "Post successfully updated")
 
@@ -97,7 +110,13 @@ exports.updatePost = async (req, res) => {
 exports.storePost = async (req, res) => {
 
 	try {
-		const thumbnail = await compressAndSaveJpeg(req.files.thumbnail.data)
+
+		let thumbnail;
+
+		if (req.files.thumbnail.mimetype == "image/gif")
+			thumbnail = await saveImage(req.files.thumbnail, "uploads/thumbnails/")
+		else
+			thumbnail = await compressAndSaveJpeg(req.files.thumbnail.data, "uploads/thumbnails/")
 
 		// if (!thumbnail) return res.redirect("back")
 
@@ -175,6 +194,33 @@ const compressAndSaveJpeg = async (buffer, destinationFolder = 'uploads/') => {
 		.catch(err => console.log(err))
 
 	return `/${newImageName}`
+
+}
+
+/**
+ *	save without compressing
+ *
+ * @param {*} file
+ * @param {string} [destination="uploads/"]
+ */
+const saveImage = async (file, destinationFolder = "uploads/") => {
+	
+	try {
+
+		const uploadPath = makePath(["public", ...destinationFolder.split("/")]);
+
+		const newImageName = `${uuid()}_${Date.now()}.${file.mimetype.split("/").pop()}`
+
+		await file.mv(`${uploadPath}/${newImageName}`)
+
+		console.log("uploads", uploadPath, newImageName, `${destinationFolder}${newImageName}`)
+
+		return `/${destinationFolder}${newImageName}`
+
+	} catch (error) {
+
+		console.log(error)
+	}
 
 }
 

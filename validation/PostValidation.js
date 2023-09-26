@@ -13,7 +13,6 @@ const validFileExtensions = { image: ['jpg', 'png', 'jpeg', 'gif'] };
  * @return {*} 
  */
 function isValidFileType(fileName, fileType) {
-    console.log("fileName", fileName)
     return fileName && validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1;
 }
 
