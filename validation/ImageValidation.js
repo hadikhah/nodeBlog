@@ -1,4 +1,4 @@
-const validFileExtensions = { image: ['jpg', 'png', 'jpeg'] };
+const validFileExtensions = { image: ['jpg', 'png', 'jpeg', 'gif'] };
 
 /** @type {*} */
 const greaterThanConditionRegex = /^(gt:)(\d{1,})/g
@@ -44,7 +44,7 @@ const fileShouldBeGreaterThan = (fileSize, validSize = 4  /**  4 MB */) => {
  *
  *
  * @param {*} image
- * @param {string} [conditions=["required", "gt:5"]]
+ * @param {string} [conditions=["required", "lt:4"]]
  * @return {*} 
  */
 exports.validateImage = (imageFile, conditions = ["required", "lt:4"]) => {
@@ -68,7 +68,7 @@ exports.validateImage = (imageFile, conditions = ["required", "lt:4"]) => {
 		const ltConditionSize = conditions[ltConditionIndex].split(":").pop()
 
 		if (!fileShouldBeLessThan(imageFile.size, ltConditionSize))
-			errors.push(`file size should be less than 4 MB`)
+			errors.push(`file size should be less than ${ltConditionSize} MB`)
 
 	}
 
@@ -80,7 +80,7 @@ exports.validateImage = (imageFile, conditions = ["required", "lt:4"]) => {
 		const gtConditionSize = conditions[gtConditionIndex].split(":").pop()
 
 		if (!fileShouldBeGreaterThan(imageFile.size, gtConditionSize))
-			errors.push(`file size should be greater than 5 MB`)
+			errors.push(`file size should be greater than ${gtConditionSize} MB`)
 
 	}
 
