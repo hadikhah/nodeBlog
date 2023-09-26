@@ -12,6 +12,7 @@ dotenv.config({ path: './.env' })
 // -------- loading env files --------
 const webRoutes = require('./router/web.js');
 const dashboardRoutes = require('./router/dashboard.js');
+const postRoutes = require('./router/post.js');
 
 const errorRoutes = require('./router/errors.js');
 // -------- loading configurations --------
@@ -28,6 +29,7 @@ config(app)
 // -------- web Routes --------
 app.use(webRoutes)
 app.use(dashboardRoutes)
+app.use(postRoutes)
 app.use(errorRoutes)
 // 
 
