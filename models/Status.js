@@ -17,6 +17,13 @@ const statusSchema = Schema({
 	}
 })
 
+statusSchema.virtual('posts', {
+	ref: "Post",
+	localField: "_id",
+	foreignField: "status",
+	justOne: false,
+})
+
 const Status = model("Status", statusSchema)
 
 module.exports = Status
