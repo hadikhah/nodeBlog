@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/highlight/styles/atom-one-dark.min.css">
+<script src="/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<section class="is-relative section py-20" style="overflow: hidden;">
+	<div class="container">
+		<div class="columns is-align-items-center">
+			<div class="column is-12-tablet is-7-desktop">
+				<div class="has-mw-lg mb-12 mb-0-desktop">
+					<div class="mb-4">
+						<div style="font-size: 12px;">
+							<a class="has-text-grey-dark" href="#">Home</a>
+							<span class="px-1">/</span>
+							<a class="has-text-grey-dark" href="#">Blog</a>
+							<span class="px-1">/</span>
+							<a class="has-text-grey-dark" href="#">Article</a>
+						</div>
+					</div>
+					<h2 class="mt-8 mb-10 title is-2">
+						<%= post.title %>
+					</h2>
+					<div class="is-flex is-align-items-center">
+						<div class="mr-6">
+							<img class="is-cover"
+								style="width: 64px; height: 64px; object-position: top; border-radius: 100%;"
+								src="/img/default_avatar.jpg" alt="">
+						</div>
+						<div>
+							<h4 class="mb-1 is-size-5 has-text-weight-semibold">
+								<%= `${post.user.first_name} ${post.user.last_name}` %>
+							</h4>
+							<p class="has-text-grey-dark">
+								<%= (new Date(post.createdAt)).toDateString() %>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="is-absolute is-top-0 is-right-0 mt-10 is-hidden-touch column is-5 p-0" style="height: 384px;">
+				<img class="image is-fullwidth is-cover is-rounded" style="height: 100%;" src="<%= post.thumbnail %>"
+					alt="">
+			</div>
+		</div>
+	</div>
+	<div class="is-hidden-desktop">
+		<img class="image is-fullwidth is-cover is-rounded" src="<%= post.thumbnail %>" alt="">
+	</div>
+
+	<div class=" section container pb-0 mt-24-desktop">
+		<article class="has-mw-2xl mx-auto">
+			<%- post.body%>
+		</article>
+	</div>
+</section>
