@@ -126,7 +126,7 @@ exports.CKEDITORuploadImage = async (req, res) => {
 	try {
 		const destinationFolder = "uploads/postImages"
 
-		const validationErrors = validateImage(req.files.upload, ["required", "lt:0.2"])
+		const validationErrors = validateImage(req.files.upload, ["required", "lt:4"])
 
 		if (validationErrors.length)
 			return res.status(422).send({ "error": { "message": validationErrors.join("\n") } })
