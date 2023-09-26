@@ -1,8 +1,47 @@
-<div class="container pt-6 ">
-    <h1>وبلاگ ساده ی من</h1>
+<section class="is-relative section py-20" style="overflow: hidden;">
+    <img class="is-absolute is-left-0 is-top-0 mt-24 is-hidden-touch"
+        src="zeus-assets/icons/dots/blue-dot-left-bars.svg" alt="">
+    <img class="is-absolute is-right-0 is-top-0 mt-52 is-hidden-touch"
+        src="zeus-assets/icons/dots/yellow-dot-right-shield.svg" alt="">
+    <div class="container">
+        <div class="has-mw-2xl mx-auto mb-20 has-text-centered">
+            <span class="is-size-7"><small class="has-text-info has-text-weight-semibold">What's new at
+                    Blog</small></span>
+            <h2 class="mt-8 mb-10 title is-2">Latest articles</h2>
+            <!-- <p class="is-size-5 has-text-grey-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan aliquet orci.</p> -->
+        </div>
+        <div class="columns is-multiline mb-16">
 
-    <span class="fa fa-plus"></span>
-    <a href="/login" class="button is-primary">ورود</a>
-    <button class="button is-black">hello </button>
-    <div style="height: 1000px;"></div>
-</div>
+            <% publishedPosts.posts.forEach(post=> {%>
+
+                <div class="column is-4">
+                    <div class="box">
+                        <div class="is-relative mb-6" style="height: 216px;">
+
+                            <!-- category -->
+                            <!-- <small class="is-absolute is-top-o is-right-0 mt-4 mr-4 tag is-dark" style="z-index: 10;">
+                                DEVELOPMENT
+                            </small> -->
+
+                            <img class="image is-fullwidth is-cover is-rounded" style="height: 100%;"
+                                src="<%= post.thumbnail %>" alt="">
+                        </div>
+                        <span class="is-inline-block mb-4 has-text-grey-dark">
+                            <%= new Date(post.createdAt).toDateString() %>
+                        </span>
+                        <h2 class="mb-4 is-size-4 has-text-weight-semibold">
+                            <%= post.title %>
+                        </h2>
+                        <p class="mb-4 has-text-grey-dark">
+                            <%= post.brief %>
+                        </p>
+                        <a class="is-size-6" href="#">Read more</a>
+                    </div>
+                </div>
+                <% }); %>
+
+        </div>
+    </div>
+    <div class="pt-4 has-text-centered"><a class="button is-primary" href="#">View More Articles</a></div>
+</section>
