@@ -3,7 +3,7 @@ const yup = require('yup');
 const { Validator, setPreviousFormData, setPreviousFormErrors } = require('./Validator');
 const Status = require('../models/Status');
 
-const validFileExtensions = { image: ['jpg', 'png', 'jpeg'] };
+const validFileExtensions = { image: ['jpg', 'png', 'jpeg', 'gif'] };
 
 /**
  * checks if the uploaded file type is valid
