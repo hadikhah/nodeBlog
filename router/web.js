@@ -4,6 +4,7 @@ const LoginController = require('../controller/Auth/LoginController');
 const LogoutController = require('../controller/Auth/LogoutController');
 const RegisterController = require('../controller/Auth/RegisterController');
 const ResetPasswordController = require('../controller/Auth/ResetPasswordController');
+const { verifyEmail } = require('../controller/Auth/VerifyEmailController');
 
 // main page controller 
 const MainController = require('../controller/MainController');
@@ -25,6 +26,8 @@ router.get('/register', guest, RegisterController.showRegisterForm)
 router.post('/register', guest, RegisterValidation, RegisterController.handleCaptcha, RegisterController.Register)
 
 router.post('/logout', auth, LogoutController.HandleLogout)
+
+router.get("/verify_email", verifyEmail)
 
 router.get('/password/reset', ResetPasswordController.showEmailRequestForm)
 
