@@ -23,11 +23,12 @@
 						<div class="mr-6">
 							<img class="is-cover"
 								style="width: 64px; height: 64px; object-position: top; border-radius: 100%;"
-								src="/img/default_avatar.jpg" alt="">
+								src="<%= post.user?.avatar?`${post.user.first_name}`:" /img/default_avatar.jpg"%>"
+							alt="">
 						</div>
 						<div>
 							<h4 class="mb-1 is-size-5 has-text-weight-semibold">
-								<%= `${post.user.first_name} ${post.user.last_name}` %>
+								<%= post.user?`${post.user.first_name} ${post.user.last_name}`:"deleted acount" %>
 							</h4>
 							<p class="has-text-grey-dark">
 								<%= (new Date(post.createdAt)).toDateString() %>
