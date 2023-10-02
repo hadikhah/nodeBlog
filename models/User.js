@@ -22,6 +22,9 @@ const userSchema = mongoose.Schema({
         minlength: 4,
         maxlength: 255
     },
+    emailVerifiedAt: {
+        type: Date,
+    },
     created_at: {
         type: Date,
         default: Date.now
