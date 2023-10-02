@@ -12,8 +12,12 @@
                 Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan aliquet orci.</p> -->
         </div>
         <div class="columns is-multiline mb-16">
+            <% if(publishedPosts.posts.length < 1){ %>
+                <p>
+                    no articles found
+                </p>
 
-            <% publishedPosts.posts.forEach(post=> {%>
+            <% } else { publishedPosts.posts.forEach(post=> {%>
 
                 <div class="column is-4">
                     <div class="box">
@@ -39,7 +43,7 @@
                         <a class="is-size-6" href="<%= `/post/${post._id}` %>">Read more</a>
                     </div>
                 </div>
-                <% }); %>
+                <% });} %>
 
         </div>
     </div>
