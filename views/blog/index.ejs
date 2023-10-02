@@ -12,38 +12,38 @@
                 Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan aliquet orci.</p> -->
         </div>
         <div class="columns is-multiline mb-16">
-            <% if(publishedPosts.posts.length < 1){ %>
+            <% if(publishedPosts?.posts.length < 1){ %>
                 <p>
                     no articles found
                 </p>
 
-            <% } else { publishedPosts.posts.forEach(post=> {%>
+                <% } else { publishedPosts?.posts.forEach(post=> {%>
 
-                <div class="column is-4">
-                    <div class="box">
-                        <div class="is-relative mb-6" style="height: 216px;">
+                    <div class="column is-4">
+                        <div class="box">
+                            <div class="is-relative mb-6" style="height: 216px;">
 
-                            <!-- category -->
-                            <!-- <small class="is-absolute is-top-o is-right-0 mt-4 mr-4 tag is-dark" style="z-index: 10;">
+                                <!-- category -->
+                                <!-- <small class="is-absolute is-top-o is-right-0 mt-4 mr-4 tag is-dark" style="z-index: 10;">
                                 DEVELOPMENT
                             </small> -->
 
-                            <img class="image is-fullwidth is-cover is-rounded" style="height: 100%;"
-                                src="<%= post.thumbnail %>" alt="">
+                                <img class="image is-fullwidth is-cover is-rounded" style="height: 100%;"
+                                    src="<%= post.thumbnail %>" alt="">
+                            </div>
+                            <span class="is-inline-block mb-4 has-text-grey-dark">
+                                <%= new Date(post.createdAt).toDateString() %>
+                            </span>
+                            <h2 class="mb-4 is-size-4 has-text-weight-semibold">
+                                <%= post.title %>
+                            </h2>
+                            <p class="mb-4 has-text-grey-dark">
+                                <%= truncate(post.brief,200) %>
+                            </p>
+                            <a class="is-size-6" href="<%= `/post/${post._id}` %>">Read more</a>
                         </div>
-                        <span class="is-inline-block mb-4 has-text-grey-dark">
-                            <%= new Date(post.createdAt).toDateString() %>
-                        </span>
-                        <h2 class="mb-4 is-size-4 has-text-weight-semibold">
-                            <%= post.title %>
-                        </h2>
-                        <p class="mb-4 has-text-grey-dark">
-                            <%= truncate(post.brief,200) %>
-                        </p>
-                        <a class="is-size-6" href="<%= `/post/${post._id}` %>">Read more</a>
                     </div>
-                </div>
-                <% });} %>
+                    <% });} %>
 
         </div>
     </div>
