@@ -1,0 +1,26 @@
+<% if(auth?.isAuth && !auth?.user.emailVerifiedAt) {%>
+	<section class="section mt-20">
+		<div class="container has-text-centered ">
+			<div class="has-background-grey mx-8 mx-16-desktop my-10 my-20-desktop is-rounded">
+
+				<p class="is-size-5 has-text-light">
+					a verification email is sent to you , please verify your email . if you did not receive the email click
+					on resend button
+				</p>
+				<!-- <div class="is-flex is-align-items-end is-fullwidth"> -->
+				<!-- <div class="is-flex-grow-1 mr-4 mb-4 mb-0-desktop">
+									<div class="is-relative">
+										<input class="input py-6 has-background-dark has-text-white" type="text"
+											value="e.g hello@shuffle.dev">
+										<span
+											class="is-absolute is-top-0 is-left-0 -mt-2 ml-3 has-background-dark has-text-light"
+											style="font-size: 12px;">Your email address</span>
+									</div>
+								</div> -->
+				<!-- <div> -->
+				<a href="#" class="button is-info">resend verification email</a>
+				<!-- </div> -->
+			</div>
+		</div>
+	</section>
+	<% } %>

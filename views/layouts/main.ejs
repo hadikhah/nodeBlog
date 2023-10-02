@@ -20,12 +20,14 @@
             </title>
 </head>
 
-<body >
+<body>
     <!-- including navbar -->
     <%- include("../includes/main_navbar.ejs") %>
         <!-- body -->
         <div id="app">
-            <%- body %>
+            <%- include("../includes/messages/verify_email_message.ejs") %>
+
+                <%- body %>
         </div>
         <!-- special javascripts of the page -->
         <%- script %>
