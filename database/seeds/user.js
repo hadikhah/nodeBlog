@@ -11,6 +11,7 @@ const data = [
 		first_name: "hello",
 		last_name: "demo",
 		email: "demo@demo.com",
+		emailVerifiedAt: new Date().toISOString(),
 		password: hash,
 	}
 ]
