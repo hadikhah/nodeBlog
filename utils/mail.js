@@ -3,20 +3,26 @@ const ejs = require("ejs");
 
 const makePath = require("./path");
 
+/**
+ * email schema options
+ * 
+ *  @type {*} 
+*/
+const mailOptions = {
+	host: process.env.MAIL_HOST,
+	port: process.env.MAIL_PORT,
+	secure: process.env.MAIL_SECURE == "true" ? true : (process.env.MAIL_SECURE == "false") ? false : null,
+	auth: {
+		user: process.env.MAIL_USERNAME,
+		pass: process.env.MAIL_PASSWORD,
+	},
+}
 
 /** 
  *  email schema
  * @type {*}
  */
-const transporter = nodemailer.createTransport({
-	host: process.env.MAIL_HOST,
-	port: process.env.MAIL_PORT,
-	secure: process.env.MAIL_SECURE == "true" ? true : false,
-	auth: {
-		user: process.env.MAIL_USERNAME,
-		pass: process.env.MAIL_PASSWORD,
-	},
-});
+const transporter = nodemailer.createTransport(mailOptions);
 
 /**
  * send email using html body format
