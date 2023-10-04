@@ -103,7 +103,7 @@ const createUserVerificationUrl = async (userId) => {
     const token = jwt.sign({
 
         // exp: Math.floor(Date.now() / 1000) + (60 * 5),// 5 min
-        data: {userId}
+        data: { userId }
 
     },
         process.env.JWT_SECRET,
@@ -120,7 +120,7 @@ const createUserVerificationUrl = async (userId) => {
  * @param {*} user
  * @return {*} 
  */
-const sendUserVerificationEmail = async (user) => {
+exports.sendUserVerificationEmail = async (user) => {
 
     try {
 

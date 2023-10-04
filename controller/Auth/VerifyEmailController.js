@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
 
+const { sendUserVerificationEmail } = require('./RegisterController');
 
 exports.verifyEmail = async (req, res) => {
 	try {
@@ -24,5 +25,27 @@ exports.verifyEmail = async (req, res) => {
 			return res.redirect('/500')
 	}
 
+
+}
+
+/**
+ * resend verification email to the logged in user
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @return {*} 
+ */
+exports.resendVerificationEmail = async (req, res, next) => {
+
+	try {
+		await sendUserVerificationEmail(req.user)
+
+		res.redirect("back")
+
+	} catch (error) {
+
+		return next(error)
+	}
 
 }
