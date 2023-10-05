@@ -14,6 +14,7 @@ const auth = require('../middleware/auth');
 const guest = require('../middleware/guest');
 
 const RegisterValidation = require('../validation/RegisterValidation');
+const ResetPasswordValidation = require('../validation/ResetPasswordValidation');
 
 
 //home page
@@ -31,6 +32,8 @@ router.get("/verify_email", verifyEmail)
 
 router.get("/resend_verification_email", auth, resendVerificationEmail)
 
-router.get('/password/reset', ResetPasswordController.showEmailRequestForm)
+router.get('/password/reset', guest, ResetPasswordController.showEmailRequestForm)
+
+router.post('/password/reset', guest, ResetPasswordValidation, ResetPasswordController.sendResetPasswordEmail)
 
 module.exports = router
