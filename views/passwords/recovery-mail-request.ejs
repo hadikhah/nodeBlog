@@ -7,34 +7,36 @@
                         <header class="card-header">
                             <p class="card-header-title">
                                 <span class="icon"><i class="mdi mdi-lock-open default"></i></span>
-                                <span>بازیابی رمز عبور</span>
+                                <span>Reset password form</span>
                             </p>
-                            <a href="/" class="button is-small router-link-active">صفحه اصلی</a>
+                            <a href="/" class="button is-small router-link-active">Home page</a>
                         </header>
                         <div class="card-content">
-                            <form method="POST">
-                                <div class="field">
-                                    <label class="label">ایمیل خود را وارد کنید</label>
-                                    <div class="control">
-                                        <input type="email" autocomplete="on" name="email" class="input " required
-                                            autofocus>
+                            <%- include("../includes/messages.ejs") %>
+
+                                <form method="POST" action="">
+                                    <div class="field">
+                                        <label class="label">Please enter you account email</label>
+                                        <div class="control">
+                                            <input type="email" autocomplete="on" name="email" class="input " required
+                                                autofocus>
+                                        </div>
+                                        <p class="help has-text-danger"></p>
                                     </div>
-                                    <p class="help has-text-danger"></p>
-                                </div>
-                                <hr>
-                                <div class="field is-grouped" style="direction: ltr;">
-                                    <div class="control">
-                                        <a href="/login" class="button is-black is-outlined">
-                                            بازگشت
-                                        </a>
+                                    <hr>
+                                    <div class="field is-grouped" style="direction: ltr;">
+                                        <div class="control">
+                                            <a href="/login" class="button is-black is-outlined">
+                                                back
+                                            </a>
+                                        </div>
+                                        <div class="control">
+                                            <button type="submit" class="button is-black">
+                                                send reset password link
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="control">
-                                        <button type="submit" class="button is-black">
-                                            ارسال لینک بازیابی گذرواژه
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
                         </div>
                     </div>
                 </div>
