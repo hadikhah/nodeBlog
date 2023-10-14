@@ -12,6 +12,7 @@ const MainController = require('../controller/MainController');
 // middleware
 const auth = require('../middleware/auth');
 const guest = require('../middleware/guest');
+const NewPasswordFormValidation = require('../validation/NewPasswordFormValidation');
 
 const RegisterValidation = require('../validation/RegisterValidation');
 const ResetPasswordValidation = require('../validation/ResetPasswordValidation');
@@ -33,6 +34,12 @@ router.get("/verify_email", verifyEmail)
 router.get("/resend_verification_email", auth, resendVerificationEmail)
 
 router.get('/password/reset', guest, ResetPasswordController.showEmailRequestForm)
+
+router.get('/password/reset', guest, ResetPasswordController.showEmailRequestForm)
+
+router.get('/password/reset/form', ResetPasswordController.showResetPasswordFormPage)
+
+router.post('/password/reset/form', NewPasswordFormValidation, ResetPasswordController.resetPassword)
 
 router.post('/password/reset', guest, ResetPasswordValidation, ResetPasswordController.sendResetPasswordEmail)
 

@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const User = require("../../models/User")
-const { setFormSuccessMessage } = require("../../validation/Validator")
+const { setFormSuccessMessage, setPreviousFormErrors } = require("../../validation/Validator")
 const { renderTemplateEjs, sendMailHTML } = require('../../utils/mail');
 
 
@@ -15,6 +16,13 @@ exports.showEmailRequestForm = (req, res) => {
     return res.render('passwords/recovery-mail-request', { pageTitle: "Reset password", layout: "layouts/base" })
 }
 
+/**
+ * sends recovery email to the given email if exists in db
+ *
+ * @param {*} req
+ * @param {*} res
+ * @return {*} 
+ */
 exports.sendResetPasswordEmail = async (req, res) => {
 
     try {
@@ -41,6 +49,77 @@ exports.sendResetPasswordEmail = async (req, res) => {
     }
 
 
+}
+
+/**
+ * renders the change password form page
+ *
+ * @param {*} req
+ * @param {*} res
+ * @return {*} 
+ */
+exports.showResetPasswordFormPage = (req, res) => {
+
+    try {
+
+        const token = req.query.token;
+
+        return res.render('passwords/resetPasswordForm', { pageTitle: "Reset password", layout: "layouts/base", token })
+
+
+    } catch (error) {
+
+        if (error.name && error.message)
+            return res.send(error.message)
+
+        else
+            return res.redirect('/500')
+    }
+
+}
+
+/**
+ * changes the password
+ *
+ * @param {*} req
+ * @param {*} res
+ * @return {*} 
+ */
+exports.resetPassword = async (req, res) => {
+
+    try {
+
+        const token = req.query.token;
+
+        const tokenData = jwt.verify(token, process.env.JWT_SECRET)
+
+        const user = await User.findOne({ _id: tokenData.data.userId })
+
+        if (!bcrypt.compareSync(req.body.current_password, user.password)) {
+
+            setPreviousFormErrors(req, ["password is not correct"])
+
+            return res.redirect("back")
+        }
+
+        bcrypt.hash(req.body.new_password, 10, async (err, hash) => {
+
+            await user.update({ password: hash })
+
+            setFormSuccessMessage(req, "password successfully changed")
+
+            return res.redirect("/login")
+
+        })
+
+    } catch (error) {
+
+        if (error.name && error.message)
+            return res.send(error.message)
+
+        else
+            return res.redirect('/500')
+    }
 }
 
 
