@@ -4,7 +4,9 @@ const DashboardController = require('../controller/Dashboard/DashboardController
 const PostController = require('../controller/Dashboard/PostController');
 
 const auth = require('../middleware/auth');
+const NewPasswordFormValidation = require('../validation/NewPasswordFormValidation');
 const { NewPostValidation, UpdatePostValidation } = require('../validation/PostValidation');
+const ProfileUpdateValidation = require('../validation/ProfileUpdateValidation');
 
 /**
  * @route
@@ -48,6 +50,23 @@ router.get('/dashboard/post/edit/:id', auth, PostController.editPostPage)
  * @desc dashboard Stores a post 
  */
 router.post('/dashboard/post/edit/:id', auth, UpdatePostValidation, PostController.updatePost)
-
+/**
+ * @route
+ * @get
+ * @desc dashboard profile page 
+ */
+router.get('/dashboard/profile', auth, DashboardController.showDashboardProfilePage)
+/**
+ * @route
+ * @post
+ * @desc dashboard save new password 
+ */
+router.post('/dashboard/profile/change_password', auth, NewPasswordFormValidation, DashboardController.updateProfilePassword)
+/**
+ * @route
+ * @post
+ * @desc dashboard save new password 
+ */
+router.post('/dashboard/profile/update', auth, ProfileUpdateValidation, DashboardController.updateProfile)
 
 module.exports = router
