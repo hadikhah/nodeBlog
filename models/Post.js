@@ -7,16 +7,19 @@ const postSchema = Schema({
 		trim: true,
 		minLength: 5,
 		maxLength: 300
-	}, 
+	},
 	brief: {
 		type: String,
 		require: true,
 		trim: true,
+		index: true
+
 	},
 	body: {
 		type: String,
 		require: true,
 		trim: true,
+		index: true
 	},
 	thumbnail: {
 		type: String,
@@ -36,6 +39,10 @@ const postSchema = Schema({
 		default: Date.now()
 	}
 })
+
+postSchema.index(
+	{ title: "text", brief: "text", body: "text" }
+)
 
 const Post = model("Post", postSchema)
 

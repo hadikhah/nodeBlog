@@ -108,6 +108,9 @@ function config(app) {
             route: {
                 current_path: req.path
             },
+            request: {
+                query: req.query
+            },
             // adds env variables to the local variables 
             env: function () {
                 return { ...process.env }

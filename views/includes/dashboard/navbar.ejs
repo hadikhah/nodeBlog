@@ -8,7 +8,10 @@
 			<span class="icon"><i class="mdi mdi-backburger mdi-24px"></i></span>
 		</a>
 		<div class="navbar-item has-control no-left-space">
-			<div class="control"><input placeholder="جستجو ..." class="input"></div>
+			<form action="/dashboard/post/all" method="get">
+				<div class="control"><input placeholder="search ..." value="<%= request.query.search %>" name="search"
+						class="input"></div>
+			</form>
 		</div>
 	</div>
 	<div class="navbar-brand is-right">

@@ -1,13 +1,12 @@
 const multer = require('multer');
 const fs = require('fs');
+const uuid = require("uuid").v4;
+const sharp = require('sharp');
 
 const Post = require('../../models/Post');
 const Status = require('../../models/Status');
-const { setFormSuccessMessage, setPreviousFormErrors } = require('../../validation/Validator');
-const { fileFilter } = require('../../utils/multer');
-const uuid = require("uuid").v4;
-const sharp = require('sharp');
 const makePath = require('../../utils/path');
+const { setFormSuccessMessage } = require('../../validation/Validator');
 const { validateImage } = require('../../validation/ImageValidation');
 
 /**
@@ -204,7 +203,7 @@ const compressAndSaveJpeg = async (buffer, destinationFolder = 'uploads/') => {
  * @param {string} [destination="uploads/"]
  */
 const saveImage = async (file, destinationFolder = "uploads/") => {
-	
+
 	try {
 
 		const uploadPath = makePath(["public", ...destinationFolder.split("/")]);
@@ -238,15 +237,22 @@ exports.showAllPosts = async (req, res) => {
 	const page = parseInt(req.query.page ?? 1);
 
 	try {
-		const posts = await Post.find({ user: req.user._id })
+		let find = { user: req.user._id };
+
+		if (req.query?.search)
+			find = { ...find, $text: { $search: req.query?.search } }
+		// find = { ...find, "$or": [{ "title": { $search: req.query?.search } }, { "brief": { $search: req.query?.search } }, { "body": { $search: req.query?.search } }] }
+
+		const dbQuery = Post.find(find)
 			.limit(perPage)
 			.skip(perPage * (page - 1))
 			.sort({
 				createdAt: 'desc'
-			})
-			.populate("status");
+			});
 
-		const allPostsCount = await Post.count()
+		const posts = await dbQuery.populate("status");
+
+		const allPostsCount = await dbQuery.countDocuments()
 
 		const totalPages = allPostsCount % perPage ? (Math.floor((allPostsCount / perPage) + 1)) : (Math.floor(allPostsCount / perPage))
 

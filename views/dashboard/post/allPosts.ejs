@@ -22,7 +22,26 @@
 						all posts
 					</p>
 				</header>
+
 				<div class="card-content">
+					<form action="/dashboard/post/all" method="get">
+
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">search</label>
+							</div>
+							<div class="field-body">
+								<div class="field">
+									<p class="control is-expanded has-icons-left">
+										<input class="input" type="text" name="search"
+											value="<%= request.query?.search %>" placeholder="search ...">
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</form>
+
 					<!-- posts list start here -->
 					<% posts.forEach((post,key)=> { %>
 
@@ -38,8 +57,8 @@
 										<button class="button is-small is-primary" type="button">
 											<span class="icon"><i class="mdi mdi-eye"></i></span>
 										</button>
-										<a href="/dashboard/post/edit/<%= post._id %>" class="button is-small is-warning"
-											type="button">
+										<a href="/dashboard/post/edit/<%= post._id %>"
+											class="button is-small is-warning" type="button">
 											<span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
 										</a>
 										<button class="button is-small is-danger jb-modal" data-target="sample-modal"
