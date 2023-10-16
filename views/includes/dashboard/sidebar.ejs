@@ -1,7 +1,7 @@
 <aside id="aside-main" class="aside is-expanded is-placed-left">
 	<div class="aside-tools">
 		<div class="aside-tools-label">
-			<span><b>MA</b>H</span>
+			<span><b>dragon</b>line</span>
 		</div>
 	</div>
 	<div class="menu-container jb-has-perfect-scrollbar">
@@ -9,7 +9,7 @@
 			<p class="menu-label">Main</p>
 			<ul class="menu-list">
 				<li>
-					<a href="/dashboard" class="is-active has-icon">
+					<a href="/dashboard" class="<%= route.current_path== `/dashboard`?`is-active`:``%> has-icon">
 						<span class="icon"><i class="mdi mdi-view-dashboard"></i></span>
 						<span class="menu-item-label">Dashboard</span>
 					</a>
@@ -18,24 +18,27 @@
 			<p class="menu-label">posts</p>
 			<ul class="menu-list">
 				<li>
-					<a href="/dashboard/post/all" class="has-icon">
+					<a href="/dashboard/post/all"
+						class="<%= route.current_path== `/dashboard/post/all`?`is-active`:``%> has-icon">
 						<span class="icon has-update-mark"><i class="mdi mdi-table"></i></span>
 						<span class="menu-item-label">All posts</span>
 					</a>
 				</li>
 				<li>
-					<a href="/dashboard/post/create" class="has-icon">
+					<a href="/dashboard/post/create"
+						class="<%= route.current_path== `/dashboard/post/create`?`is-active`:``%> has-icon">
 						<span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
 						<span class="menu-item-label">New post</span>
 					</a>
 				</li>
 				<li>
-					<a href="profile.html" class="has-icon">
+					<a href="/dashboard/profile"
+						class="<%= route.current_path== `/dashboard/profile`?`is-active`:``%> has-icon">
 						<span class="icon"><i class="mdi mdi-account-circle"></i></span>
-						<span class="menu-item-label">پروفایل</span>
+						<span class="menu-item-label">profile</span>
 					</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a class="has-icon has-submenu-icon jb-dropdown">
 						<span class="icon"><i class="mdi mdi-arrow-down-bold-circle"></i></span>
 						<span class="menu-item-label">باز شونده</span>
@@ -102,9 +105,9 @@
 					</a>
 				</li>
 			</ul>
+		</div> -->
 		</div>
-	</div>
-	<div class="menu is-menu-bottom">
+		<!-- <div class="menu is-menu-bottom">
 		<ul class="menu-list">
 			<li>
 				<a title="Log out" class="has-icon is-state-info is-hoverable">
@@ -113,9 +116,11 @@
 				</a>
 			</li>
 		</ul>
-	</div>
+	</div> -->
 </aside>
-<aside id="aside-secondary" class="aside is-placed-left is-expanded is-secondary is-hidden">
+
+
+<!-- <aside id="aside-secondary" class="aside is-placed-left is-expanded is-secondary is-hidden">
 	<div class="aside-tools has-icon">
 		<div class="aside-tools-label">
 			<span class="icon"><i class="mdi mdi-view-list default"></i></span>
@@ -162,5 +167,5 @@
 	</div>
 	<div class="menu is-menu-bottom">
 		<ul class="menu-list"></ul>
-	</div>
+	</div> -->
 </aside>

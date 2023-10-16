@@ -41,7 +41,7 @@ function config(app) {
     app.use(express.urlencoded({ extended: false }))
     //
     app.use(fileUpload({
-        limits: { fileSize: 50 * 1024 * 1024 /** about 50 MB */}
+        limits: { fileSize: 50 * 1024 * 1024 /** about 50 MB */ }
     }))
     // ---------- view engine configs ----------
     app.set("view engine", 'ejs')
@@ -103,6 +103,10 @@ function config(app) {
             auth: {
                 user: req.user,
                 isAuth: req.isAuthenticated(),
+            },
+            // adds route information to local variables
+            route: {
+                current_path: req.path
             },
             // adds env variables to the local variables 
             env: function () {
