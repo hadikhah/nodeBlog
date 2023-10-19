@@ -5,6 +5,8 @@ const sharp = require('sharp');
 
 const Post = require('../../models/Post');
 const Status = require('../../models/Status');
+const User = require('../../models/User');
+
 const makePath = require('../../utils/path');
 const { setFormSuccessMessage } = require('../../validation/Validator');
 const { validateImage } = require('../../validation/ImageValidation');
@@ -39,7 +41,17 @@ exports.createPostPage = async (req, res) => {
 exports.editPostPage = async (req, res) => {
 
 	try {
-		const post = await Post.findOne({ _id: req.params.id })
+
+		const user = await User.findOne({ _id: req.user._id }).populate({
+			path: "posts", options: {
+				findOne: { _id: req.params.id }
+			}
+		}).lean()
+
+		if (!user.posts.length)
+			return res.redirect("/404")
+
+		const post = user.posts[0]
 
 		const statusList = await Status.find()
 
@@ -67,7 +79,7 @@ exports.updatePost = async (req, res) => {
 
 		const oldThumbnail = makePath(["public"]) + post.thumbnail
 
-		const newPost = { ...req.body, user: req.user.id }
+		const newPost = { ...req.body }
 
 		if (req.files?.thumbnail) {
 
