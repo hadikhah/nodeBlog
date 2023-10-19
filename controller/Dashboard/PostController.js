@@ -241,18 +241,15 @@ exports.showAllPosts = async (req, res) => {
 
 		if (req.query?.search)
 			find = { ...find, $text: { $search: req.query?.search } }
-		// find = { ...find, "$or": [{ "title": { $search: req.query?.search } }, { "brief": { $search: req.query?.search } }, { "body": { $search: req.query?.search } }] }
 
-		const dbQuery = Post.find(find)
+		const posts = await Post.find(find)
 			.limit(perPage)
 			.skip(perPage * (page - 1))
 			.sort({
 				createdAt: 'desc'
-			});
+			}).populate("status").lean();
 
-		const posts = await dbQuery.populate("status");
-
-		const allPostsCount = await dbQuery.countDocuments()
+		const allPostsCount = await Post.countDocuments(find)
 
 		const totalPages = allPostsCount % perPage ? (Math.floor((allPostsCount / perPage) + 1)) : (Math.floor(allPostsCount / perPage))
 
