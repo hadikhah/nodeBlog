@@ -1,6 +1,10 @@
 const bcrypt = require('bcryptjs');
+
 const User = require('../../models/User');
+const Post = require('../../models/Post');
+
 const { setFormSuccessMessage } = require('../../validation/Validator');
+const { truncate } = require('../../utils/helpers');
 
 /**
  * renders dashboard main page
@@ -8,9 +12,30 @@ const { setFormSuccessMessage } = require('../../validation/Validator');
  * @param {*} req
  * @param {*} res
  */
-exports.showDashboardPage = (req, res) => {
+exports.showDashboardPage = async (req, res) => {
 
-    return res.render('dashboard/dashboard', { pageTitle: "dashboard", layout: "layouts/dashboard" })
+    try {
+        const totalPosts = await Post.countDocuments({ user: req.user._id })
+
+        const user = await User.findOne({ _id: req.user._id }).populate({
+            path: "posts",
+            options: { sort: { 'createdAt': -1 }, limit: 4 },
+            populate: { path: "status" }
+        }).lean()
+
+        const posts = user.posts
+
+        return res.render('dashboard/dashboard', { pageTitle: "dashboard", layout: "layouts/dashboard", totalPosts, posts, truncate })
+
+    } catch (error) {
+
+        if (error.name && error.message)
+            return res.send(error.message)
+
+        else
+            return res.redirect('/500')
+
+    }
 
 }
 

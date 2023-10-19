@@ -1,519 +1,321 @@
 <!-- <div id="app"> -->
 
 
-            <section class="section is-title-bar">
-                <div class="level">
-                    <div class="level-left">
+<section class="section is-title-bar">
+    <div class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <ul>
+                    <li>dashboard</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="hero is-hero-bar is-main-hero">
+    <div class="hero-body">
+        <div class="level">
+            <div class="level-left">
+                <div class="level-item is-hero-avatar-item">
+                    <div class="image is-user-avatar"><img
+                            src="https://api.dicebear.com/6.x/initials/svg?seed=<%= auth.user.first_name.charAt(0) %><%= auth.user.last_name.charAt(0) %>">
+                    </div>
+                </div>
+                <div class="level-item is-hero-content-item">
+                    <div>
+                        <h1 class="title is-spaced">hello <b>
+                                <%= auth.user.first_name %>
+                                    <%= auth.user.last_name %>
+                                        <!-- <h3 class="subtitle">آخزین ورود <b>۱۲دقیقه قبل </b>از طریق
+                                            <b>192.168.1.1</b>
+                                        </h3>
+                                        <p>شما <b>۶ فعالیت</b> و <b>84 سوال</b> برای امروز دارید</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="level-right">
+                <div class="level-item">
+                    <a href="/dashboard/profile" class="button is-light" title="Profile">
+                        <span class="icon"><i class="mdi mdi-account"></i></span>
+                        <span>manage profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section is-main-section">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <div class="card is-card-widget tile is-child">
+
+                <div class="card-content">
+                    <div class="level is-mobile">
                         <div class="level-item">
-                            <ul>
-                                <li>ادمین</li>
-                                <li>داشبورد</li>
-                            </ul>
+                            <div class="is-widget-label">
+                                <h3 class="subtitle is-spaced">total posts</h3>
+                                <h1 class="title">
+                                    <%= totalPosts %>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="level-item has-widget-icon">
+                            <div class="is-widget-icon">
+                                <span class="icon has-text-primary is-large"><i
+                                        class="mdi mdi-clipboard-text mdi-48px"></i></span>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-            </section>
-            <section class="hero is-hero-bar is-main-hero">
-                <div class="hero-body">
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <!-- <div class="card is-card-widget tile is-child">
+
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-item">
+                            <div class="is-widget-label">
+                                <h3 class="subtitle is-spaced">جمع فروش</h3>
+                                <h1 class="title">
+                                    ریال7,770
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="level-item has-widget-icon">
+                            <div class="is-widget-icon">
+                                <span class="icon has-text-info is-large"><i
+                                        class="mdi mdi-cart-outline mdi-48px"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="tile is-parent">
+            <!-- <div class="card is-card-widget tile is-child">
+
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-item">
+                            <div class="is-widget-label">
+                                <h3 class="subtitle is-spaced">کارایی اجرایی</h3>
+                                <h1 class="title">
+                                    256%
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="level-item has-widget-icon">
+                            <div class="is-widget-icon">
+                                <span class="icon has-text-success is-large"><i
+                                        class="mdi mdi-chart-timeline-variant mdi-48px"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="tile is-parent">
+            <!-- <div class="card is-card-widget tile is-child">
+
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-item">
+                            <div class="is-widget-label">
+                                <h3 class="subtitle is-spaced">هشدار</h3>
+                                <h1 class="title">
+                                    32
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="level-item has-widget-icon">
+                            <div class="is-widget-icon">
+                                <span class="icon has-text-danger is-large"><i class="mdi mdi-bell mdi-48px"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-finance"></i></span>
+                نمودار اجرایی
+            </p>
+            <a href="#" class="card-header-icon">
+                <span class="icon"><i class="mdi mdi-reload"></i></span>
+            </a>
+        </header>
+        <div class="card-content">
+            <div class="chart-area">
+                <div style="height: 100%;">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div></div>
+                        </div>
+                    </div>
+                    <canvas id="big-line-chart" width="2992" height="1000" class="chartjs-render-monitor"
+                        style="display: block; height: 400px; width: 1197px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="columns is-desktop">
+        <div class="column">
+            <div class="card has-height-short">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        <span class="icon"><i class="mdi mdi-comment-multiple-outline default"></i></span>
+                        <span>my latest posts</span>
+                    </p>
+
+                </header>
+
+                <div class="card-content jb-has-perfect-scrollbar">
+                    <div class="media-list">
+                        <% posts.forEach(post=> {%>
+
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64"><img src="<%= post.thumbnail??" /img/preview.png" %>"
+                                        class="is-rounded"></p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p class="media-meta">
+                                            <strong>
+                                                <%= post.title %>
+                                            </strong>
+                                            <small class="has-text-grey">
+                                                <%= (new Date(post.createdAt)).toDateString() %>
+                                            </small>
+                                            <span class="tag is-light">
+                                                <%= post.status.key %>
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <%= truncate(post.brief) %>
+
+                                        </p>
+                                    </div>
+                                    <!-- <nav class="level is-mobile">
+                                        <div class="level-left">
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-reply default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-twitter-retweet default"></i></span></a>
+                                            <a class="level-item"><span class="icon"><i
+                                                        class="mdi mdi-heart-outline default"></i></span></a>
+                                        </div>
+                                    </nav> -->
+                                </div>
+                            </article>
+                            <% }); %>
+
+
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a class="card-footer-item">
+                        <span class="icon"><i class="mdi mdi-autorenew default"></i></span>
+                        <span>more</span>
+                    </a>
+                </footer>
+            </div>
+        </div>
+        <!-- <div class="column">
+            <div class="card has-height-medium">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        <span class="icon"><i class="mdi mdi-animation-outline default"></i></span>
+                        <span>به روز رسانی ها</span>
+                    </p>
+                    <button type="button" class="button is-small">
+                        <span class="icon"><i class="mdi mdi-refresh default"></i></span>
+                        <span>رفرش</span>
+                    </button>
+                </header>
+                <div class="notification is-card-toolbar is-upper">
                     <div class="level">
                         <div class="level-left">
-                            <div class="level-item is-hero-avatar-item">
-                                <div class="image is-user-avatar"><img
-                                        src="https://api.dicebear.com/6.x/initials/svg?seed=<%= auth.user.first_name.charAt(0) %><%= auth.user.last_name.charAt(0) %>">
-                                </div>
-                            </div>
-                            <div class="level-item is-hero-content-item">
-                                <div>
-                                    <h1 class="title is-spaced"><b>
-                                            <%= auth.user.first_name %>
-                                                <%= auth.user.last_name %>
-                                                    <h3 class="subtitle">آخزین ورود <b>۱۲دقیقه قبل </b>از طریق
-                                                        <b>192.168.1.1</b>
-                                                    </h3>
-                                                    <p>شما <b>۶ فعالیت</b> و <b>84 سوال</b> برای امروز دارید</p>
-                                </div>
+                            <div class="level-item">
+                                <div>شما به روز هستید :-)</div>
                             </div>
                         </div>
                         <div class="level-right">
-                            <div class="level-item">
-                                <a href="profile.html" class="button is-light" title="Profile">
-                                    <span class="icon"><i class="mdi mdi-account"></i></span>
-                                    <span>مدیریت پروفایل</span>
-                                </a>
+                            <div class="level-item"><span class="tag is-success"><span>کامل شد</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="section is-main-section">
-                <div class="tile is-ancestor">
-                    <div class="tile is-parent">
-                        <div class="card is-card-widget tile is-child">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    <span class="icon"><i class="mdi mdi-arrow-up-bold"></i></span>
-                                    <span><b>۳۸۴</b> در <b>جولای , 2019</b></span>
-                                </p>
-                                <button type="button" class="button is-small">
-                                    <span class="icon"><i class="mdi mdi-settings"></i></span>
-                                </button>
-                            </header>
-                            <div class="card-content">
-                                <div class="level is-mobile">
-                                    <div class="level-item">
-                                        <div class="is-widget-label">
-                                            <h3 class="subtitle is-spaced">کاربر</h3>
-                                            <h1 class="title">
-                                                512
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div class="level-item has-widget-icon">
-                                        <div class="is-widget-icon">
-                                            <span class="icon has-text-primary is-large"><i
-                                                    class="mdi mdi-account-multiple mdi-48px"></i></span>
-                                        </div>
-                                    </div>
+                <div class="card-content jb-has-perfect-scrollbar">
+                    <div class="media-list">
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="media-meta">
+                                        <strong>تیم دوم</strong>
+                                        <small> @team.dovom </small>
+                                        <small class="has-text-grey">
+                                            دو ماه پیش
+                                        </small>
+                                    </p>
+                                    <p>
+                                        این متن یک به روزرسانیه که میتونه خیلی خیلی طولانی تر از این چیزا
+                                        باشه ولی
+                                        باید کوچیک باشه و ادامش توی یه صفحه بزرگتر باز بشه.
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tile is-parent">
-                        <div class="card is-card-widget tile is-child">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    <span class="icon"><i class="mdi mdi-arrow-up-bold"></i></span>
-                                    <span><b>ریال7,000</b> در <b>جولای, 2019</b></span>
-                                </p>
-                                <button type="button" class="button is-small">
-                                    <span class="icon"><i class="mdi mdi-settings"></i></span>
-                                </button>
-                            </header>
-                            <div class="card-content">
-                                <div class="level is-mobile">
-                                    <div class="level-item">
-                                        <div class="is-widget-label">
-                                            <h3 class="subtitle is-spaced">جمع فروش</h3>
-                                            <h1 class="title">
-                                                ریال7,770
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div class="level-item has-widget-icon">
-                                        <div class="is-widget-icon">
-                                            <span class="icon has-text-info is-large"><i
-                                                    class="mdi mdi-cart-outline mdi-48px"></i></span>
-                                        </div>
-                                    </div>
+                            <div class="media-right">
+                                <button class="delete"></button>
+                            </div>
+                        </article>
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="media-meta">
+                                        <strong>Kaelyn Gorczany</strong>
+                                        <small>@gaylord.myriam</small>
+                                        <small class="has-text-grey">2 months ago</small>
+                                    </p>
+                                    <p>
+                                        مدل انگلیسی : et harum doloribus illum. Minus totam quia omnis.
+                                        Rerum vel numquam labore
+                                        alias exercitationem harum. Iusto ipsum et cupiditate aut tempore
+                                        rerum
+                                        sit ipsa.
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tile is-parent">
-                        <div class="card is-card-widget tile is-child">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    <span class="icon"><i class="mdi mdi-arrow-down-bold"></i></span>
-                                    <span><b>384%</b> در <b>جولای , 2019</b></span>
-                                </p>
-                                <button type="button" class="button is-small">
-                                    <span class="icon"><i class="mdi mdi-settings"></i></span>
-                                </button>
-                            </header>
-                            <div class="card-content">
-                                <div class="level is-mobile">
-                                    <div class="level-item">
-                                        <div class="is-widget-label">
-                                            <h3 class="subtitle is-spaced">کارایی اجرایی</h3>
-                                            <h1 class="title">
-                                                256%
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div class="level-item has-widget-icon">
-                                        <div class="is-widget-icon">
-                                            <span class="icon has-text-success is-large"><i
-                                                    class="mdi mdi-chart-timeline-variant mdi-48px"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="media-right">
+                                <button class="delete"></button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tile is-parent">
-                        <div class="card is-card-widget tile is-child">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    <span class="icon"><i class="mdi mdi-arrow-down-bold"></i></span>
-                                    <span><b>64</b> در <b>جولای , 2019</b></span>
-                                </p>
-                                <button type="button" class="button is-small">
-                                    <span class="icon"><i class="mdi mdi-settings"></i></span>
-                                </button>
-                            </header>
-                            <div class="card-content">
-                                <div class="level is-mobile">
-                                    <div class="level-item">
-                                        <div class="is-widget-label">
-                                            <h3 class="subtitle is-spaced">هشدار</h3>
-                                            <h1 class="title">
-                                                32
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div class="level-item has-widget-icon">
-                                        <div class="is-widget-icon">
-                                            <span class="icon has-text-danger is-large"><i
-                                                    class="mdi mdi-bell mdi-48px"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </article>
+
                     </div>
                 </div>
+                <footer class="card-footer">
+                    <a class="card-footer-item">
+                        <span class="icon"><i class="mdi mdi-autorenew default"></i></span>
+                        <span>موارد بیشتر</span>
+                    </a>
+                </footer>
+            </div>
+        </div> -->
+    </div>
 
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            <span class="icon"><i class="mdi mdi-finance"></i></span>
-                            نمودار اجرایی
-                        </p>
-                        <a href="#" class="card-header-icon">
-                            <span class="icon"><i class="mdi mdi-reload"></i></span>
-                        </a>
-                    </header>
-                    <div class="card-content">
-                        <div class="chart-area">
-                            <div style="height: 100%;">
-                                <div class="chartjs-size-monitor">
-                                    <div class="chartjs-size-monitor-expand">
-                                        <div></div>
-                                    </div>
-                                    <div class="chartjs-size-monitor-shrink">
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <canvas id="big-line-chart" width="2992" height="1000" class="chartjs-render-monitor"
-                                    style="display: block; height: 400px; width: 1197px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="columns is-desktop">
-                    <div class="column">
-                        <div class="card has-height-medium">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    <span class="icon"><i class="mdi mdi-comment-multiple-outline default"></i></span>
-                                    <span>نظر های اخیر</span>
-                                </p>
-                                <button type="button" class="button is-small">
-                                    <span class="icon"><i class="mdi mdi-refresh default"></i></span>
-                                    <span>رفرش</span>
-                                </button>
-                            </header>
-                            <div class="notification is-card-toolbar is-upper">
-                                <div class="level">
-                                    <div class="level-left">
-                                        <div class="level-item">
-                                            <div>مهم ها برای یادداشت</div>
-                                        </div>
-                                    </div>
-                                    <div class="level-right">
-                                        <div class="level-item"><span class="tag is-warning"><span>خطا</span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-content jb-has-perfect-scrollbar">
-                                <div class="media-list">
-                                    <article class="media">
-                                        <figure class="media-left">
-                                            <p class="image is-64x64"><img
-                                                    src="https://avatars.dicebear.com/v2/initials/رویا-نونهالی.svg"
-                                                    class="is-rounded"></p>
-                                        </figure>
-                                        <div class="media-content">
-                                            <div class="content">
-                                                <p class="media-meta">
-                                                    <strong>
-                                                        رویا نونهالی
-                                                    </strong>
-                                                    <small>@royaNonahali</small>
-                                                    <small class="has-text-grey">دو ماه پیش</small>
-                                                </p>
-                                                <p>
-                                                    این نظر یک نظر نمایشی هست برای نمایش یک مثال از یک نظر که این نظر
-                                                    میتونه
-                                                    بلند باشه میتونه کوتاه هم باشه اما نظر بلند رو نباید اینجا نمایش داد
-                                                </p>
-                                            </div>
-                                            <nav class="level is-mobile">
-                                                <div class="level-left">
-                                                    <a class="level-item"><span class="icon"><i
-                                                                class="mdi mdi-reply default"></i></span></a>
-                                                    <a class="level-item"><span class="icon"><i
-                                                                class="mdi mdi-twitter-retweet default"></i></span></a>
-                                                    <a class="level-item"><span class="icon"><i
-                                                                class="mdi mdi-heart-outline default"></i></span></a>
-                                                </div>
-                                            </nav>
-                                        </div>
-                                    </article>
-                                    <article class="media">
-                                        <figure class="media-left">
-                                            <p class="image is-64x64"><img
-                                                    src="https://avatars.dicebear.com/v2/initials/آریا-عظیمی-نژاد.svg"
-                                                    class="is-rounded"></p>
-                                        </figure>
-                                        <div class="media-content">
-                                            <div class="content">
-                                                <p class="media-meta">
-                                                    <strong>
-                                                        آریا عظیمی‌نژاد
-                                                    </strong>
-                                                    <small>@aria_aziminejad</small>
-                                                    <small class="has-text-grey">دو ماه پیش</small>
-                                                </p>
-                                                <p>
-                                                    نظر من برای نوشتن نظر به این شکل موافقه اما چون به نظرم جای پیشرفت
-                                                    وجود داره
-                                                    یه قرمز به نظرم باید بمونه.
-                                                </p>
-                                            </div>
-                                            <nav class="level is-mobile">
-                                                <div class="level-left">
-                                                    <a class="level-item"><span class="icon"><i
-                                                                class="mdi mdi-reply default"></i></span></a>
-                                                    <a class="level-item"><span class="icon"><i
-                                                                class="mdi mdi-twitter-retweet default"></i></span></a>
-                                                    <a class="level-item"><span class="icon"><i
-                                                                class="mdi mdi-heart-outline default"></i></span></a>
-                                                </div>
-                                            </nav>
-                                        </div>
-                                    </article>
-
-                                </div>
-                            </div>
-                            <footer class="card-footer">
-                                <a class="card-footer-item">
-                                    <span class="icon"><i class="mdi mdi-autorenew default"></i></span>
-                                    <span>موارد بیشتر</span>
-                                </a>
-                            </footer>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="card has-height-medium">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    <span class="icon"><i class="mdi mdi-animation-outline default"></i></span>
-                                    <span>به روز رسانی ها</span>
-                                </p>
-                                <button type="button" class="button is-small">
-                                    <span class="icon"><i class="mdi mdi-refresh default"></i></span>
-                                    <span>رفرش</span>
-                                </button>
-                            </header>
-                            <div class="notification is-card-toolbar is-upper">
-                                <div class="level">
-                                    <div class="level-left">
-                                        <div class="level-item">
-                                            <div>شما به روز هستید :-)</div>
-                                        </div>
-                                    </div>
-                                    <div class="level-right">
-                                        <div class="level-item"><span class="tag is-success"><span>کامل شد</span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-content jb-has-perfect-scrollbar">
-                                <div class="media-list">
-                                    <article class="media">
-                                        <div class="media-content">
-                                            <div class="content">
-                                                <p class="media-meta">
-                                                    <strong>تیم دوم</strong>
-                                                    <small> @team.dovom </small>
-                                                    <small class="has-text-grey">
-                                                        دو ماه پیش
-                                                    </small>
-                                                </p>
-                                                <p>
-                                                    این متن یک به روزرسانیه که میتونه خیلی خیلی طولانی تر از این چیزا
-                                                    باشه ولی
-                                                    باید کوچیک باشه و ادامش توی یه صفحه بزرگتر باز بشه.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="media-right">
-                                            <button class="delete"></button>
-                                        </div>
-                                    </article>
-                                    <article class="media">
-                                        <div class="media-content">
-                                            <div class="content">
-                                                <p class="media-meta">
-                                                    <strong>Kaelyn Gorczany</strong>
-                                                    <small>@gaylord.myriam</small>
-                                                    <small class="has-text-grey">2 months ago</small>
-                                                </p>
-                                                <p>
-                                                    مدل انگلیسی : et harum doloribus illum. Minus totam quia omnis.
-                                                    Rerum vel numquam labore
-                                                    alias exercitationem harum. Iusto ipsum et cupiditate aut tempore
-                                                    rerum
-                                                    sit ipsa.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="media-right">
-                                            <button class="delete"></button>
-                                        </div>
-                                    </article>
-
-                                </div>
-                            </div>
-                            <footer class="card-footer">
-                                <a class="card-footer-item">
-                                    <span class="icon"><i class="mdi mdi-autorenew default"></i></span>
-                                    <span>موارد بیشتر</span>
-                                </a>
-                            </footer>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card has-table has-mobile-sort-spaced">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            <span class="icon"><i class="mdi mdi-monitor-cellphone"></i></span>
-                            نمونه جدول رسپانسیو
-                        </p>
-                        <button type="button" class="button is-small"><span class="icon"><i
-                                    class="mdi mdi-refresh default"></i></span><span>بارگیری مجدد
-                            </span></button>
-                    </header>
-                    <div class="notification is-card-toolbar">
-                        <div class="level">
-                            <div class="level-left">
-                                <div class="level-item">
-                                    <div class="buttons has-addons">
-                                        <button class="button is-active">فعال</button>
-                                        <button disabled="disabled" class="button">اخیر</button>
-                                        <button disabled="disabled" class="button">آرشیو ها</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="level-right">
-                                <div class="level-item">
-                                    <form>
-                                        <div class="field has-addons">
-                                            <div class="control"><input type="text" placeholder="فیلد ساده ..."
-                                                    class="input">
-                                            </div>
-                                            <div class="control">
-                                                <button type="submit" class="button is-primary"><span class="icon"><i
-                                                            class="mdi mdi-dots-horizontal default"></i></span></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="b-table has-pagination">
-                            <div class="table-wrapper has-mobile-cards">
-                                <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th class="is-current-sort is-sortable">
-                                                <div class="th-wrap">
-                                                    نام <span class="icon is-small"><i
-                                                            class="mdi mdi-arrow-up"></i></span>
-                                                </div>
-                                            </th>
-                                            <th class="is-sortable">شرکت</th>
-                                            <th class="is-sortable">شهر</th>
-                                            <th>پیشرفت</th>
-                                            <th>ایجاد شده در</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="is-image-cell">
-                                                <div class="image">
-                                                    <img src="https://api.dicebear.com/6.x/initials/svg?seed=<%= auth.user.first_name.charAt(0) %><%= auth.user.last_name.charAt(0) %>"
-                                                        class="is-rounded">
-                                                </div>
-                                            </td>
-                                            <td data-label="نام">
-                                                <%= auth.user.first_name %>
-                                                    <%= auth.user.last_name %>
-                                            </td>
-                                            <td data-label="شرکت">
-                                                عصر جدید
-                                            </td>
-                                            <td data-label="شهر">
-                                                تهران
-                                            </td>
-                                            <td data-label="پیشرفت" class="is-progress-cell">
-                                                <progress max="100" class="progress is-small is-primary"
-                                                    value="45">45</progress>
-                                            </td>
-                                            <td data-label="ایجاد شده در">
-                                                <small class="has-text-grey is-abbr-like" title="Oct 25, 2020">
-                                                    25,
-                                                    اکتبر,
-                                                    2020
-                                                </small>
-                                            </td>
-                                            <td class="is-actions-cell">
-                                                <div class="buttons is-right">
-                                                    <button class="button is-small is-primary" type="button">
-                                                        <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                                    </button>
-                                                    <button class="button is-small is-danger jb-modal"
-                                                        data-target="sample-modal" type="button">
-                                                        <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="notification">
-                                <div class="level">
-                                    <div class="level-left">
-                                        <div class="level-item">
-                                            <div class="buttons has-addons">
-                                                <button type="button" class="button is-active">1</button>
-                                                <button type="button" class="button">2</button>
-                                                <button type="button" class="button">3</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <small>Page 1 of 3</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+</section>
 
 <!-- </div> -->
 
