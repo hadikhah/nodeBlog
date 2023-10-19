@@ -1,0 +1,108 @@
+<section class="is-relative section " style="overflow: hidden;">
+	<div class="container">
+
+		<form action="/posts" method="get">
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">search</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<p class="control is-expanded has-icons-left">
+							<input class="input" type="text" name="search" value="<%= request.query?.search %>"
+								placeholder="search ...">
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</form>
+		<div class="columns is-multiline mb-16">
+			<% if(posts.length < 1){ %>
+				<p>
+					no articles found
+				</p>
+
+				<% } else { posts.forEach(post=> {%>
+
+					<div class="column is-4">
+						<div class="box">
+							<div class="is-relative mb-6" style="height: 216px;">
+
+								<!-- category -->
+								<!-- <small class="is-absolute is-top-o is-right-0 mt-4 mr-4 tag is-dark" style="z-index: 10;">
+						DEVELOPMENT
+					</small> -->
+
+								<img class="image is-fullwidth is-cover is-rounded" style="height: 100%;"
+									src="<%= post.thumbnail %>" alt="">
+							</div>
+							<span class="is-inline-block mb-4 has-text-grey-dark">
+								<%= new Date(post.createdAt).toDateString() %>
+							</span>
+							<h2 class="mb-4 is-size-4 has-text-weight-semibold">
+								<%= post.title %>
+							</h2>
+							<p class="mb-4 has-text-grey-dark">
+								<%= truncate(post.brief,200) %>
+							</p>
+							<a class="is-size-6" href="<%= `/post/${post._id}` %>">Read more</a>
+						</div>
+					</div>
+					<% });} %>
+
+		</div>
+
+
+		<nav class="pagination is-rounded" role="navigation" aria-label="pagination">
+
+			<ul class="pagination-list">
+
+				<% if(currentPage>1){ %>
+					<li><a href="?<%= (new URLSearchParams({...query,page:1})).toString() %>" class="pagination-link"
+							aria-label="Goto page 1">1</a></li>
+					<% } %>
+						<% if(currentPage>3){ %>
+							<li><span class="pagination-ellipsis">&hellip;</span></li>
+
+							<% } %>
+								<% if(currentPage>2){ %>
+
+									<li><a href="?<%= (new URLSearchParams({...query,page:currentPage-1})).toString() %>"
+											class="pagination-link" aria-label="Goto page 45">
+											<%= currentPage-1 %>
+										</a></li>
+									<% } %>
+
+										<li><a class="pagination-link is-current" aria-label="Page 46"
+												aria-current="page">
+												<%= currentPage %>
+											</a></li>
+
+										<% if(totalPages>currentPage){ %>
+											<li><a href="?<%= (new URLSearchParams({...query,page:currentPage+1})).toString() %>"
+													class="pagination-link" aria-label="Goto page 47">
+													<%= currentPage+1 %>
+												</a></li>
+											<% } %>
+
+
+												<% if(totalPages-currentPage>=2){ %>
+													<li><span class="pagination-ellipsis">&hellip;</span>
+													</li>
+
+
+													<li><a href="?<%= (new URLSearchParams({...query,page:totalPages})).toString() %>"
+															class="pagination-link" aria-label="Goto page 86">
+															<%= totalPages %>
+														</a></li>
+
+													<% } %>
+
+			</ul>
+		</nav>
+
+	</div>
+
+</section>
